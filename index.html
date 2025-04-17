@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>青本健康</title>
+  <title>Camega</title>
   <style>
     body {
       margin: 0; font-family: 'Helvetica Neue', sans-serif; line-height: 1.6; background: #f5f5f5; color: #333;
@@ -11,12 +12,12 @@
     header {
       background: #fff; padding: 20px 40px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0;
     }
-    header h1 { margin: 0; font-size: 24px; }
+    header h1 { margin: 0; font-size: 24px; color: #00796b; }
     nav a {
       margin-left: 20px; text-decoration: none; color: #333; font-weight: bold;
     }
     .hero {
-      background: url('https://source.unsplash.com/1600x600/?nature,health') no-repeat center center/cover;
+      background: url('https://source.unsplash.com/1600x600/?nature,wellness') no-repeat center center/cover;
       height: 400px; color: white; display: flex; flex-direction: column; justify-content: center; align-items: center;
       text-shadow: 0 0 10px rgba(0,0,0,0.3);
     }
@@ -24,7 +25,7 @@
     .hero p { font-size: 18px; }
 
     .products {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;
+      display: grid; grid-template-columns: 1fr; gap: 30px;
       padding: 60px 40px; background: #fff;
     }
     .product {
@@ -32,13 +33,13 @@
       text-align: center;
     }
     .product img {
-      width: 100%; height: 200px; object-fit: cover; border-radius: 8px;
+      width: 100%; max-width: 400px; height: auto; border-radius: 8px;
     }
     .product h3 { margin-top: 15px; }
     .product p { font-size: 14px; color: #666; }
     .product a {
-      display: inline-block; margin-top: 10px; padding: 8px 16px;
-      background: #00a86b; color: white; border-radius: 5px; text-decoration: none;
+      display: inline-block; margin-top: 10px; padding: 10px 20px;
+      background: #00796b; color: white; border-radius: 5px; text-decoration: none;
     }
 
     .contact {
@@ -55,48 +56,34 @@
 <body>
 
   <header>
-    <h1>青本健康</h1>
+    <h1>Camega</h1>
     <nav>
-      <a href="#products">产品</a>
-      <a href="#contact">咨询</a>
+      <a href="#products">Product</a>
+      <a href="#contact">Contact</a>
     </nav>
   </header>
 
   <section class="hero">
-    <h2>自然之力，守护健康</h2>
-    <p>源自天然的健康解决方案</p>
+    <h2>Better Health, Naturally.</h2>
+    <p>Your source of Omega goodness</p>
   </section>
 
   <section id="products" class="products">
     <div class="product">
-      <img src="https://source.unsplash.com/400x300/?supplement" alt="产品1">
-      <h3>青本胶囊</h3>
-      <p>提高免疫力，帮助调节肠胃功能。</p>
-      <a href="#">了解更多</a>
-    </div>
-    <div class="product">
-      <img src="https://source.unsplash.com/400x300/?bottle,vitamin" alt="产品2">
-      <h3>养元饮</h3>
-      <p>天然草本成分，舒缓身心，助眠佳品。</p>
-      <a href="#">了解更多</a>
-    </div>
-    <div class="product">
-      <img src="https://source.unsplash.com/400x300/?natural,wellness" alt="产品3">
-      <h3>肝清丸</h3>
-      <p>护肝排毒，适合经常应酬和熬夜人群。</p>
-      <a href="#">了解更多</a>
+      <img src="assets/camega-omega.jpg" alt="Camega Omega+">
+      <h3>Camega Omega+</h3>
+      <p>Camega is dedicated to providing high-quality omega-3 products designed to enhance your overall health.</p>
+      <a href="#contact">Stay Connected with Camega</a>
     </div>
   </section>
 
   <section id="contact" class="contact">
-    <h2>联系我们</h2>
-    <p>邮箱：health@qingben.com<br>微信：QingBenOfficial</p>
-    <p>扫码微信添加咨询：</p>
-    <img src="https://via.placeholder.com/160x160.png?text=WeChat+QR" alt="微信二维码">
+    <h2>Contact Us:</h2>
+    <p>Email: info@camega.com</p>
   </section>
 
   <footer>
-    &copy; 2025 青本健康 QingBen Health. 保留所有权利。
+    &copy; 2025 Camega. All rights reserved.
   </footer>
 
 </body>
