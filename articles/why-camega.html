@@ -5,22 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Why Choose Camega Omega+ | Camega</title>
   <meta name="description" content="Discover what makes Camega Omega+ the best choice for premium omega-3 supplements.">
-  <style>
+  <link rel="stylesheet" href="../styles.css">
+ <style>
     body {
       margin: 0; font-family: 'Helvetica Neue', sans-serif; line-height: 1.6; background: #f5f5f5; color: #333;
-    }
-    header {
-      background: #fff;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0;
-    }
-    header h1 { padding: 15px 0px 0px 20px; margin: 0; font-size: 24px; color: #00796b; }
-    header h1 a { margin: 0; font-size: 24px; color: #00796b; }
-    nav {
-      background: #fafafa;
-      text-align: center;
-    }
-    nav a {
-      margin-left: 20px; text-decoration: none; color: #333; font-weight: bold; padding-left: 50px; padding-right: 50px;
     }
     .content {
       max-width: 800px; margin: auto; background: #fff; padding: 40px;
@@ -37,12 +25,19 @@
   <link rel="shortcut icon" href="../assets/favicon/favicon.ico" />
   <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png" />
   <link rel="manifest" href="../assets/favicon/site.webmanifest" />
+  <script>
+    function toggleNav() {
+      const nav = document.getElementById('main-nav');
+      nav.classList.toggle('show');
+    }
+  </script>
 </head>
 <body>
 
   <header>
-    <h1><a href="../index.html"><img src="../assets/logo.jpg" alt="Camega Logo" style="height: 100px;"></a></h1>
-    <nav>
+    <h1><a href="../index.html"><img src="../assets/logo.jpg" alt="Camega Logo"></a></h1>
+    <button class="nav-toggle" onclick="toggleNav()">☰</button>
+    <nav id="main-nav">
       <a href="../index.html#products">Product</a>
       <a href="../index.html#contact">Contact</a>
       <a href="../articles.html">Articles</a>

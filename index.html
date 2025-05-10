@@ -11,14 +11,30 @@
   <link rel="shortcut icon" href="assets/favicon/favicon.ico" />
   <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png" />
   <link rel="manifest" href="assets/favicon/site.webmanifest" />
+  <script>
+    function toggleNav() {
+      const nav = document.getElementById('main-nav');
+      nav.classList.toggle('show');
+    }
+  </script>
 </head>
 <body>
 
-  <header>
+  <!-- <header>
     <h1><a href="index.html"><img src="assets/logo.jpg" alt="Camega Logo" style="height: 100px;"></a></h1>
     <nav>
       <a href="#products">Product</a>
       <a href="#contact">Contact</a>
+      <a href="articles.html">Articles</a>
+    </nav>
+  </header> -->
+
+  <header>
+    <h1><a href="index.html"><img src="assets/logo.jpg" alt="Camega Logo"></a></h1>
+    <button class="nav-toggle" onclick="toggleNav()">☰</button>
+    <nav id="main-nav">
+      <a href="index.html#products">Product</a>
+      <a href="index.html#contact">Contact</a>
       <a href="articles.html">Articles</a>
     </nav>
   </header>
