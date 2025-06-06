@@ -3,25 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Why Choose Camega Omega+ | Camega</title>
-  <meta name="description" content="Discover what makes Camega Omega+ the best choice for premium omega-3 supplements.">
+  <title>Why Choose Camega: Our Commitment to Quality and Purity | Camega</title>
+  <meta name="description" content="Discover why Camega stands out in the supplement industry with our commitment to quality, purity, and transparency.">
   <meta name="apple-mobile-web-app-title" content="Camega">
   <meta name="application-name" content="Camega">
   <link rel="stylesheet" href="../styles.css">
- <style>
-    body {
-      margin: 0; font-family: 'Helvetica Neue', sans-serif; line-height: 1.6; background: #f5f5f5; color: #333;
-    }
-    .content {
-      max-width: 800px; margin: auto; background: #fff; padding: 40px;
-    }
-    h2 {
-      color: #00796b;
-    }
-    footer {
-      text-align: center; padding: 20px; background: #eee; font-size: 14px; color: #777;
-    }
-  </style>
   <link rel="icon" type="image/png" href="../assets/favicon/favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/png" sizes="192x192" href="../assets/favicon/web-app-manifest-192x192.png">
   <link rel="icon" type="image/png" sizes="512x512" href="../assets/favicon/web-app-manifest-512x512.png">
@@ -34,10 +20,51 @@
       const nav = document.getElementById('main-nav');
       nav.classList.toggle('show');
     }
+
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+
+    window.onscroll = function() {
+      const backToTop = document.querySelector('.back-to-top');
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    };
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Why Choose Camega: Our Commitment to Quality and Purity",
+      "description": "Discover why Camega stands out in the supplement industry with our commitment to quality, purity, and transparency.",
+      "image": "https://camega.ca/assets/logo.jpg",
+      "author": {
+        "@type": "Organization",
+        "name": "Camega"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Camega",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://camega.ca/assets/logo.jpg"
+        }
+      },
+      "datePublished": "2025-05-13",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://camega.ca/articles/why-camega.html"
+      }
+    }
   </script>
 </head>
 <body>
-
   <header>
     <h1><a href="../index.html"><img src="../assets/logo.jpg" alt="Camega Logo"></a></h1>
     <button class="nav-toggle" onclick="toggleNav()">☰</button>
@@ -48,44 +75,89 @@
     </nav>
   </header>
 
-  <section class="content">
-    <h2>Why Choose Camega Omega+</h2>
-    <p>Choosing the right Omega-3 supplement can make a big difference. At Camega, we go beyond the basics to offer a premium, effective, and sustainable product you can trust.</p>
+  <section class="article-hero">
+    <h2>Why Choose Camega: Our Commitment to Quality and Purity</h2>
+    <p>Discover why Camega stands out in the supplement industry with our commitment to quality, purity, and transparency.</p>
+  </section>
 
-    <h3>1. Unique Source: Seal Oil</h3>
-    <p>Camega Omega+ is derived from seal oil, which offers a naturally balanced mix of DHA, EPA, and DPA — a rare Omega-3 not found in fish or algae oil.</p>
+  <section class="article-content">
+    <p>In a market flooded with supplements of varying quality, Camega stands apart. Our commitment to excellence isn't just a promise — it's a practice that's built into every aspect of our business. Here's why choosing Camega means choosing the best for your health.</p>
 
-    <h3>2. Superior Absorption</h3>
-    <p>Thanks to its natural triglyceride form and molecular structure, seal oil is easier for the body to absorb and utilize compared to other sources.</p>
+    <h3>Uncompromising Quality Standards</h3>
+    <p>At Camega, we believe that quality isn't optional — it's essential. That's why we:</p>
+    <ul>
+      <li>Source only the highest quality ingredients from trusted suppliers</li>
+      <li>Maintain strict quality control throughout the manufacturing process</li>
+      <li>Conduct rigorous testing on every batch of our products</li>
+      <li>Exceed industry standards for purity and potency</li>
+    </ul>
 
-    <h3>3. Clean and Pure</h3>
-    <p>Our oil is extracted using a gentle, environmentally-friendly process. It is third-party tested for purity, heavy metals, and contaminants.</p>
+    <h3>Transparency You Can Trust</h3>
+    <p>We believe you have the right to know exactly what you're putting in your body. That's why we:</p>
+    <ul>
+      <li>Provide detailed information about our ingredients and sourcing</li>
+      <li>Make our lab test results available upon request</li>
+      <li>Clearly label all ingredients and their amounts</li>
+      <li>Maintain open communication with our customers</li>
+    </ul>
 
-    <h3>4. Sustainable and Ethical</h3>
-    <p>Our products are sourced responsibly from the Canadian North, supporting Indigenous communities and sustainable harvesting practices.</p>
+    <h3>Science-Backed Formulations</h3>
+    <p>Our products aren't just based on trends — they're backed by science. We:</p>
+    <ul>
+      <li>Work with leading experts in nutrition and health</li>
+      <li>Use clinically proven ingredients in effective doses</li>
+      <li>Stay current with the latest research and developments</li>
+      <li>Continuously improve our formulations based on scientific evidence</li>
+    </ul>
 
-    <h3>5. Backed by Science</h3>
-    <p>Camega Omega+ is formulated based on the latest research in nutrition, offering a balance of Omegas that support heart, brain, and immune health.</p>
+    <h3>Canadian Excellence</h3>
+    <p>As a Canadian company, we're proud to meet and exceed Health Canada's rigorous standards. Our products are:</p>
+    <ul>
+      <li>NPN-certified by Health Canada</li>
+      <li>Manufactured in GMP-certified facilities</li>
+      <li>Regularly audited for quality and safety</li>
+      <li>Compliant with all Canadian regulations</li>
+    </ul>
 
-    <p>Experience the difference of a supplement that is crafted with care, quality, and purpose. <strong>Camega Omega+</strong> — for a healthier you, naturally.</p>
-    <div style="margin-top: 50px; display: flex; justify-content: center; gap: 20px;">
-      <a href="seal-oil-advantages.html" style="padding: 10px 20px; background: #00796b; color: white; text-decoration: none; border-radius: 5px;">
-        ← Previous Article
-      </a>
-      <a href="coq10-benefits.html" style="padding: 10px 20px; background: #00796b; color: white; text-decoration: none; border-radius: 5px;">
-        Next Article →
-      </a>
+    <h3>Customer-Focused Service</h3>
+    <p>Your satisfaction is our priority. We provide:</p>
+    <ul>
+      <li>Expert customer support and guidance</li>
+      <li>Easy access to product information</li>
+      <li>Responsive communication channels</li>
+      <li>Commitment to continuous improvement</li>
+    </ul>
+
+    <div class="article-navigation">
+      <a href="omega-benefits.html">← Previous Article</a>
+      <a href="seal-oil-advantages.html">Next Article →</a>
     </div>
-    <p style="margin-top: 40px;">
-      <a href="../articles.html" style="display: inline-block; padding: 10px 20px; background: #00796b; color: white; text-decoration: none; border-radius: 5px;">
-        ← Back to Articles
-      </a>
-    </p>
+
+    <div class="back-to-articles">
+      <a href="../articles.html">← Back to Articles</a>
+    </div>
   </section>
 
   <footer>
-    &copy; 2025 Camega. All rights reserved.
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <a href="../index.html#products">Products</a>
+        <a href="../index.html#contact">Contact</a>
+        <a href="../articles.html">Articles</a>
+      </div>
+      <div class="footer-section">
+        <h4>Follow Us</h4>
+        <a href="#" target="_blank">Facebook</a>
+        <a href="#" target="_blank">Twitter</a>
+        <a href="#" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2025 Camega. All rights reserved.
+    </div>
   </footer>
 
+  <a href="#" class="back-to-top" onclick="scrollToTop()">↑</a>
 </body>
 </html>
