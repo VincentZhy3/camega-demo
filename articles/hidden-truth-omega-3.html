@@ -8,32 +8,6 @@
   <meta name="apple-mobile-web-app-title" content="Camega">
   <meta name="application-name" content="Camega">
   <link rel="stylesheet" href="../styles.css">
-  <style>
-     body {
-       margin: 0; font-family: 'Helvetica Neue', sans-serif; line-height: 1.6; background: #f5f5f5; color: #333;
-     }
-     .hero {
-       height: 100px;
-       background: #00796b; color: white; padding: 80px 20px; text-align: center;
-     }
-     .hero h2 { font-size: 36px; margin-bottom: 10px; }
-     .hero p { font-size: 18px; }
- 
-     .content {
-       padding: 40px; background: #fff; max-width: 800px; margin: 0 auto;
-     }
-     .content h2 { color: #00796b; margin-top: 30px; }
-     .content p { margin-bottom: 20px; }
- 
-     footer {
-       text-align: center; padding: 20px; background: #eee; font-size: 14px; color: #777;
-     }
-     @media (max-width: 768px) {
-       .hero {
-         height: auto;
-       }
-     }
-   </style>
   <link rel="icon" type="image/png" href="../assets/favicon/favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/png" sizes="192x192" href="../assets/favicon/web-app-manifest-192x192.png">
   <link rel="icon" type="image/png" sizes="512x512" href="../assets/favicon/web-app-manifest-512x512.png">
@@ -46,6 +20,22 @@
       const nav = document.getElementById('main-nav');
       nav.classList.toggle('show');
     }
+
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+
+    window.onscroll = function() {
+      const backToTop = document.querySelector('.back-to-top');
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    };
   </script>
   <script type="application/ld+json">
     {
@@ -72,10 +62,9 @@
         "@id": "https://camega.ca/articles/hidden-truth-omega-3.html"
       }
     }
-    </script>
+  </script>
 </head>
 <body>
-
   <header>
     <h1><a href="../index.html"><img src="../assets/logo.jpg" alt="Camega Logo"></a></h1>
     <button class="nav-toggle" onclick="toggleNav()">☰</button>
@@ -86,49 +75,63 @@
     </nav>
   </header>
 
-  <section class="hero">
+  <section class="article-hero">
     <h2>Most Omega-3 Supplements Are Rancid — But You Deserve Better</h2>
     <p>The Hidden Truth About Omega-3 Supplements — And Why Purity Matters</p>
-    
   </section>
-  <section class="content">
+
+  <section class="article-content">
     <p>In a widely cited investigation by <em>The Guardian</em>, independent lab tests revealed that <strong>many fish oil supplements — even from major global brands — are oxidized, degraded, or outright rancid</strong> before reaching consumers. The shocking truth? Flavourings are often added not for taste, but to <strong>mask the rotten smell of oxidation</strong>.</p>
-    <h3>Oxidation Is the Industry’s Open Secret</h3>
+    
+    <h3>Oxidation Is the Industry's Open Secret</h3>
     <p>Studies show that over <strong>1 in 10 fish oil products</strong> tested are significantly rancid, and nearly half hover just below the voluntary oxidation limit. In fact, some products exceeded the maximum threshold by <strong>11 times</strong>. Despite the serious implications — ranging from lost health benefits to possible harm — these products are still sold freely, hidden behind misleading claims.</p>
   
-    <p>Worse still, even “certifications” by so-called authorities like GOED and IFOS offer limited reassurance. These are <strong>industry-funded organizations</strong> using voluntary, non-enforceable standards that allow borderline or degraded oils to pass. A number of brands certified under such labels have shown oxidation values far above acceptable thresholds in independent third-party tests.</p>
+    <p>Worse still, even "certifications" by so-called authorities like GOED and IFOS offer limited reassurance. These are <strong>industry-funded organizations</strong> using voluntary, non-enforceable standards that allow borderline or degraded oils to pass. A number of brands certified under such labels have shown oxidation values far above acceptable thresholds in independent third-party tests.</p>
   
     <h3>Camega Holds a Higher Standard — Every Batch, Every Time</h3>
-    <p><strong>Camega</strong> refuses to play by the industry’s weak rules. Our omega-3 oils — including premium Canadian <strong>seal oil</strong> and deep-sea <strong>fish oil</strong> — are held to uncompromising quality control standards far stricter than GOED or IFOS.</p>
+    <p><strong>Camega</strong> refuses to play by the industry's weak rules. Our omega-3 oils — including premium Canadian <strong>seal oil</strong> and deep-sea <strong>fish oil</strong> — are held to uncompromising quality control standards far stricter than GOED or IFOS.</p>
     <ul>
       <li><strong>Every single batch</strong> is independently tested for peroxide value (PV), anisidine value (AV), and TOTOX — the gold standard for oxidation.</li>
-      <li>We don’t sample randomly. <strong>Every production run is tested</strong>, with full lab reports available on request — <em>complete transparency, no exceptions</em>.</li>
+      <li>We don't sample randomly. <strong>Every production run is tested</strong>, with full lab reports available on request — <em>complete transparency, no exceptions</em>.</li>
       <li>Our third-party laboratories are <strong>ISO-accredited and unaffiliated</strong> with the omega-3 industry, ensuring neutral, verifiable results.</li>
     </ul>
   
-    <p>Unlike others, we don’t hide behind certifications — we <strong>prove</strong> our purity, openly and repeatedly.</p>
+    <p>Unlike others, we don't hide behind certifications — we <strong>prove</strong> our purity, openly and repeatedly.</p>
   
     <h3>Why It Matters</h3>
-    <p>Oxidized oils can do more than lose their benefit — they may increase inflammation, harm cholesterol levels, or introduce cellular stress. And since oxidation doesn’t always have a noticeable smell or taste, <strong>you won’t know unless it’s tested</strong>. That’s why Camega was founded: to give people omega-3s they can trust, with data behind every capsule.</p>
+    <p>Oxidized oils can do more than lose their benefit — they may increase inflammation, harm cholesterol levels, or introduce cellular stress. And since oxidation doesn't always have a noticeable smell or taste, <strong>you won't know unless it's tested</strong>. That's why Camega was founded: to give people omega-3s they can trust, with data behind every capsule.</p>
   
-    <p><strong>Choose what’s real. Choose what’s tested. Choose Camega.</strong></p>
+    <p><strong>Choose what's real. Choose what's tested. Choose Camega.</strong></p>
   
-    <div style="margin-top: 50px; display: flex; justify-content: center; gap: 20px;">
-      <a href="canada-npn-standard.html" style="padding: 10px 20px; background: #00796b; color: white; text-decoration: none; border-radius: 5px;">
-        Next Article →
-      </a>
+    <div class="article-navigation">
+      <a href="canada-npn-standard.html">Next Article →</a>
     </div>
   
-    <p style="margin-top: 40px;">
-      <a href="../articles.html" style="display: inline-block; padding: 10px 20px; background: #00796b; color: white; text-decoration: none; border-radius: 5px;">
-        ← Back to Articles
-      </a>
-    </p>
+    <div class="back-to-articles">
+      <a href="../articles.html">← Back to Articles</a>
+    </div>
   </section>
 
   <footer>
-    &copy; 2025 Camega. All rights reserved.
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <a href="../index.html#products">Products</a>
+        <a href="../index.html#contact">Contact</a>
+        <a href="../articles.html">Articles</a>
+      </div>
+      <div class="footer-section">
+        <h4>Follow Us</h4>
+        <a href="#" target="_blank">Facebook</a>
+        <a href="#" target="_blank">Twitter</a>
+        <a href="#" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2025 Camega. All rights reserved.
+    </div>
   </footer>
 
+  <a href="#" class="back-to-top" onclick="scrollToTop()">↑</a>
 </body>
 </html>
