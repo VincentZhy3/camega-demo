@@ -15,7 +15,12 @@
   <link rel="shortcut icon" href="assets/favicon/favicon.ico" />
   <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png" />
   <link rel="manifest" href="assets/favicon/site.webmanifest" />
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   <script>
+    (function() {
+      emailjs.init("vU3dp7Znri-QS3vnp"); // 这里需要替换成您的EmailJS公钥
+    })();
+
     function toggleNav() {
       const nav = document.getElementById('main-nav');
       nav.classList.toggle('show');
@@ -36,6 +41,35 @@
         top: 0,
         behavior: 'smooth'
       });
+    }
+
+    function sendEmail(e) {
+      e.preventDefault();
+      
+      const button = document.querySelector('.contact-form button');
+      const originalText = button.textContent;
+      button.textContent = 'Sending...';
+      button.disabled = true;
+
+      const templateParams = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        subject: document.getElementById('subject').value,
+        time: new Date().toLocaleString(),
+        message: document.getElementById('message').value
+      };
+
+      emailjs.send('service_gawd8dj', 'template_bpzq05o', templateParams)
+        .then(function(response) {
+          alert('Message sent successfully!');
+          document.getElementById('contact-form').reset();
+        }, function(error) {
+          alert('Failed to send message. Please try again.');
+        })
+        .finally(function() {
+          button.textContent = originalText;
+          button.disabled = false;
+        });
     }
   </script>
 </head>
@@ -83,18 +117,16 @@
   <section id="contact" class="contact">
     <h2>Contact Us</h2>
     <div class="contact-form">
-      <form action="#" method="POST">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <input type="tel" name="phone" placeholder="Your Phone Number">
-        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+      <form id="contact-form" onsubmit="sendEmail(event)">
+        <input type="text" id="name" name="name" placeholder="Your Name" required>
+        <input type="email" id="email" name="email" placeholder="Your Email" required>
+        <input type="text" id="subject" name="subject" placeholder="Subject" required>
+        <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
         <button type="submit">Send Message</button>
       </form>
     </div>
     <div class="contact-info">
-      <p>Email: info@camega.com</p>
-      <p>Phone: +1 (555) 123-4567</p>
-      <p>Address: 123 Health Street, Wellness City, HC 12345</p>
+      <p>Email: <a href="mailto:info@camega.ca">info@camega.ca</a></p>
     </div>
   </section>
 

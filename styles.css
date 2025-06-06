@@ -266,6 +266,13 @@ nav a:hover {
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #00796b;
 }
 
 .contact-form button {
@@ -277,11 +284,33 @@ nav a:hover {
     cursor: pointer;
     font-size: 16px;
     transition: all 0.3s ease;
+    margin-top: 20px;
 }
 
 .contact-form button:hover {
     background: #005b4f;
     transform: translateY(-2px);
+}
+
+.contact-info {
+    margin-top: 30px;
+}
+
+.contact-info p {
+    font-size: 18px;
+    color: #333;
+    margin: 10px 0;
+}
+
+.contact-info a {
+    color: #00796b;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: #005b4f;
+    text-decoration: underline;
 }
 
 /* Footer */
@@ -470,6 +499,14 @@ footer {
 
     .footer-section {
         align-items: center;
+    }
+
+    .contact h2 {
+        font-size: 28px;
+    }
+
+    .contact-info p {
+        font-size: 16px;
     }
 }
 
