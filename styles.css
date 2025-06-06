@@ -56,7 +56,7 @@ header h1 img:hover {
     cursor: pointer;
     background: none;
     border: none;
-    color: #00796b;
+    color: #0066b4;
     transition: transform 0.3s ease;
 }
 
@@ -89,7 +89,7 @@ nav a::after {
     height: 2px;
     bottom: 0;
     left: 50%;
-    background-color: #00796b;
+    background-color: #0066b4;
     transition: all 0.3s ease;
     transform: translateX(-50%);
 }
@@ -99,13 +99,13 @@ nav a:hover::after {
 }
 
 nav a:hover {
-    color: #00796b;
+    color: #0066b4;
 }
 
 /* Hero */
 .hero {
     background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('assets/product.jpg') no-repeat center/cover;
-    height: 500px;
+    height: 600px;
     color: white;
     display: flex;
     flex-direction: column;
@@ -113,6 +113,7 @@ nav a:hover {
     align-items: center;
     text-shadow: 0 0 10px rgba(0,0,0,0.3);
     position: relative;
+    overflow: hidden;
 }
 
 .hero::before {
@@ -122,88 +123,171 @@ nav a:hover {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0,0,0,0.3);
+    background: linear-gradient(45deg, rgba(0,102,180,0.8), rgba(0,0,0,0.6));
     z-index: 1;
 }
 
 .hero h2, .hero p {
     position: relative;
     z-index: 2;
+    text-align: center;
+    max-width: 800px;
+    padding: 0 20px;
 }
 
 .hero h2 {
-    font-size: 48px;
+    font-size: 56px;
     margin-bottom: 20px;
     animation: fadeInDown 1s ease;
+    font-weight: 700;
+    letter-spacing: 1px;
 }
 
 .hero p {
     font-size: 24px;
     animation: fadeInUp 1s ease;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.hero .cta-button {
+    display: inline-block;
+    padding: 15px 40px;
+    background: #0066b4;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border: 2px solid #0066b4;
+    animation: fadeInUp 1.2s ease;
+}
+
+.hero .cta-button:hover {
+    background: transparent;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
 /* Products */
 .products {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    padding: 60px 40px;
+    gap: 40px;
+    padding: 80px 40px;
     background: #fff;
+    position: relative;
+}
+
+.products::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: linear-gradient(to bottom, #f8f9fa, #fff);
 }
 
 .product {
-    background: #fafafa;
-    border-radius: 15px;
+    background: #fff;
+    border-radius: 20px;
     padding: 30px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.product::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: #0066b4;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
 }
 
 .product:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    transform: translateY(-15px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+.product:hover::before {
+    transform: scaleX(1);
 }
 
 .product img {
     width: 100%;
     max-width: 400px;
     height: auto;
-    border-radius: 12px;
-    transition: transform 0.3s ease;
+    border-radius: 15px;
+    transition: all 0.4s ease;
+    margin-bottom: 20px;
 }
 
 .product:hover img {
-    transform: scale(1.05);
+    transform: scale(1.05) rotate(2deg);
 }
 
 .product h3 {
     margin-top: 20px;
-    color: #00796b;
-    font-size: 24px;
+    color: #0066b4;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 15px;
 }
 
 .product p {
     font-size: 16px;
     color: #666;
     margin: 15px 0;
+    line-height: 1.8;
 }
 
 .product a {
     display: inline-block;
-    margin-top: 15px;
-    padding: 12px 30px;
-    background: #00796b;
+    margin-top: 20px;
+    padding: 12px 35px;
+    background: #0066b4;
     color: white;
-    border-radius: 25px;
+    border-radius: 30px;
     text-decoration: none;
     transition: all 0.3s ease;
-    border: 2px solid #00796b;
+    border: 2px solid #0066b4;
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
+}
+
+.product a::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.product a:hover::before {
+    width: 300px;
+    height: 300px;
 }
 
 .product a:hover {
     background: transparent;
-    color: #00796b;
+    color: #0066b4;
+    transform: translateY(-3px);
 }
 
 /* Articles List */
@@ -238,78 +322,127 @@ nav a:hover {
 
 /* Contact */
 .contact {
-    padding: 80px 40px;
+    padding: 100px 40px;
     text-align: center;
-    background: #f8f9fa;
+    background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('assets/pattern.png') repeat;
+    opacity: 0.05;
+    z-index: 0;
 }
 
 .contact h2 {
-    font-size: 36px;
-    margin-bottom: 30px;
-    color: #00796b;
+    font-size: 42px;
+    margin-bottom: 40px;
+    color: #0066b4;
+    position: relative;
+    z-index: 1;
 }
 
 .contact-form {
     max-width: 600px;
     margin: 0 auto;
     background: white;
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 1;
+    transition: transform 0.3s ease;
+}
+
+.contact-form:hover {
+    transform: translateY(-5px);
 }
 
 .contact-form input,
 .contact-form textarea {
     width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    padding: 15px;
+    margin: 12px 0;
+    border: 2px solid #eee;
+    border-radius: 10px;
     font-size: 16px;
-    transition: border-color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
     outline: none;
-    border-color: #00796b;
+    border-color: #0066b4;
+    box-shadow: 0 0 0 3px rgba(0,102,180,0.1);
 }
 
 .contact-form button {
-    background: #00796b;
+    background: #0066b4;
     color: white;
-    padding: 12px 30px;
+    padding: 15px 40px;
     border: none;
-    border-radius: 25px;
+    border-radius: 30px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 18px;
+    font-weight: 600;
     transition: all 0.3s ease;
-    margin-top: 20px;
+    margin-top: 25px;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-form button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.contact-form button:hover::before {
+    width: 300px;
+    height: 300px;
 }
 
 .contact-form button:hover {
-    background: #005b4f;
-    transform: translateY(-2px);
+    background: #004d8c;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
 .contact-info {
-    margin-top: 30px;
+    margin-top: 40px;
+    position: relative;
+    z-index: 1;
 }
 
 .contact-info p {
     font-size: 18px;
     color: #333;
-    margin: 10px 0;
+    margin: 15px 0;
 }
 
 .contact-info a {
-    color: #00796b;
+    color: #0066b4;
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
+    font-weight: 600;
 }
 
 .contact-info a:hover {
-    color: #005b4f;
+    color: #004d8c;
     text-decoration: underline;
 }
 
@@ -330,7 +463,7 @@ footer {
 }
 
 .footer-section h4 {
-    color: #00796b;
+    color: #0066b4;
     margin-bottom: 20px;
     font-size: 18px;
 }
@@ -348,7 +481,7 @@ footer {
 }
 
 .footer-section a:hover {
-    color: #00796b;
+    color: #0066b4;
 }
 
 .footer-bottom {
@@ -393,7 +526,7 @@ footer {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    background: #00796b;
+    background: #0066b4;
     color: white;
     width: 50px;
     height: 50px;
@@ -413,14 +546,14 @@ footer {
 
 .back-to-top:hover {
     transform: translateY(-5px);
-    background: #005b4f;
+    background: #004d8c;
 }
 
 /* Animations */
 @keyframes fadeInDown {
     from {
         opacity: 0;
-        transform: translateY(-20px);
+        transform: translateY(-30px);
     }
     to {
         opacity: 1;
@@ -431,11 +564,23 @@ footer {
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(30px);
     }
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
     }
 }
 
@@ -471,6 +616,10 @@ footer {
         padding: 10px 20px;
     }
 
+    .hero {
+        height: 500px;
+    }
+
     .hero h2 {
         font-size: 36px;
     }
@@ -479,17 +628,44 @@ footer {
         font-size: 18px;
     }
 
+    .hero .cta-button {
+        padding: 12px 30px;
+        font-size: 16px;
+    }
+
     .products {
-        grid-template-columns: 1fr;
-        padding: 30px 20px;
+        padding: 40px 20px;
+        gap: 30px;
+    }
+
+    .product {
+        padding: 20px;
+    }
+
+    .product h3 {
+        font-size: 24px;
     }
 
     .contact {
-        padding: 40px 20px;
+        padding: 60px 20px;
+    }
+
+    .contact h2 {
+        font-size: 32px;
     }
 
     .contact-form {
-        padding: 20px;
+        padding: 30px 20px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        padding: 12px;
+    }
+
+    .contact-form button {
+        padding: 12px 30px;
+        font-size: 16px;
     }
 
     .footer-content {
@@ -501,10 +677,6 @@ footer {
         align-items: center;
     }
 
-    .contact h2 {
-        font-size: 28px;
-    }
-
     .contact-info p {
         font-size: 16px;
     }
@@ -513,7 +685,7 @@ footer {
 /* Article Page Styles */
 .article-hero {
     height: 100px;
-    background: #00796b;
+    background: #0066b4;
     color: white;
     padding: 80px 20px;
     text-align: center;
@@ -558,13 +730,13 @@ footer {
 }
 
 .article-content h2 {
-    color: #00796b;
+    color: #0066b4;
     margin-top: 30px;
     font-size: 28px;
 }
 
 .article-content h3 {
-    color: #00796b;
+    color: #0066b4;
     margin-top: 25px;
     font-size: 24px;
 }
@@ -586,7 +758,7 @@ footer {
 }
 
 .article-content strong {
-    color: #00796b;
+    color: #0066b4;
 }
 
 .article-content em {
@@ -602,17 +774,17 @@ footer {
 
 .article-navigation a {
     padding: 12px 24px;
-    background: #00796b;
+    background: #0066b4;
     color: white;
     text-decoration: none;
     border-radius: 25px;
     transition: all 0.3s ease;
-    border: 2px solid #00796b;
+    border: 2px solid #0066b4;
 }
 
 .article-navigation a:hover {
     background: transparent;
-    color: #00796b;
+    color: #0066b4;
     transform: translateY(-2px);
 }
 
@@ -624,17 +796,17 @@ footer {
 .back-to-articles a {
     display: inline-block;
     padding: 12px 24px;
-    background: #00796b;
+    background: #0066b4;
     color: white;
     text-decoration: none;
     border-radius: 25px;
     transition: all 0.3s ease;
-    border: 2px solid #00796b;
+    border: 2px solid #0066b4;
 }
 
 .back-to-articles a:hover {
     background: transparent;
-    color: #00796b;
+    color: #0066b4;
     transform: translateY(-2px);
 }
 
@@ -654,7 +826,7 @@ footer {
 }
 
 .article-card h3 {
-    color: #00796b;
+    color: #0066b4;
     margin-top: 0;
     font-size: 24px;
     margin-bottom: 15px;
@@ -667,7 +839,7 @@ footer {
 }
 
 .article-card a {
-    color: #00796b;
+    color: #0066b4;
     text-decoration: none;
     font-weight: bold;
     display: inline-block;
@@ -675,7 +847,7 @@ footer {
 }
 
 .article-card a:hover {
-    color: #005b4f;
+    color: #004d8c;
     transform: translateX(5px);
 }
 
