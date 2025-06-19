@@ -254,14 +254,17 @@ nav a:hover {
 .product a {
     display: inline-block;
     margin-top: 20px;
-    padding: 12px 35px;
+    padding: 15px 40px;
     background: #0066b4;
     color: white;
-    border-radius: 30px;
     text-decoration: none;
-    transition: all 0.3s ease;
-    border: 2px solid #0066b4;
+    border-radius: 30px;
     font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 102, 180, 0.3);
     position: relative;
     overflow: hidden;
 }
@@ -269,25 +272,22 @@ nav a:hover {
 .product a::before {
     content: '';
     position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    background: rgba(255,255,255,0.2);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: width 0.6s ease, height 0.6s ease;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
 }
 
 .product a:hover::before {
-    width: 300px;
-    height: 300px;
+    left: 100%;
 }
 
 .product a:hover {
-    background: transparent;
-    color: #0066b4;
-    transform: translateY(-3px);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 102, 180, 0.4);
+    background: #004d8c;
 }
 
 /* Articles List */
@@ -396,30 +396,28 @@ nav a:hover {
     margin-top: 25px;
     position: relative;
     overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 102, 180, 0.3);
 }
 
 .contact-form button::before {
     content: '';
     position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    background: rgba(255,255,255,0.2);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: width 0.6s ease, height 0.6s ease;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
 }
 
 .contact-form button:hover::before {
-    width: 300px;
-    height: 300px;
+    left: 100%;
 }
 
 .contact-form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 102, 180, 0.4);
     background: #004d8c;
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
 .contact-info {
@@ -781,7 +779,7 @@ footer {
 .article-navigation a {
     padding: 12px 24px;
     background: #0066b4;
-    color: white;
+    color: white !important;
     text-decoration: none;
     border-radius: 25px;
     transition: all 0.3s ease;
@@ -790,7 +788,7 @@ footer {
 
 .article-navigation a:hover {
     background: transparent;
-    color: #0066b4;
+    color: #0066b4 !important;
     transform: translateY(-2px);
 }
 
@@ -803,7 +801,7 @@ footer {
     display: inline-block;
     padding: 12px 24px;
     background: #0066b4;
-    color: white;
+    color: white !important;
     text-decoration: none;
     border-radius: 25px;
     transition: all 0.3s ease;
@@ -812,7 +810,7 @@ footer {
 
 .back-to-articles a:hover {
     background: transparent;
-    color: #0066b4;
+    color: #0066b4 !important;
     transform: translateY(-2px);
 }
 
@@ -938,4 +936,654 @@ footer {
     
     font-weight: bold;
     text-shadow: none;
+}
+
+/* Professional Modern Button Styles */
+
+/* Style 1: Gradient Button with Subtle Shadow */
+.btn-gradient {
+    display: inline-block;
+    padding: 15px 40px;
+    background: linear-gradient(135deg, #0066b4 0%, #004d8c 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 102, 180, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-gradient::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.btn-gradient:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 102, 180, 0.4);
+    background: linear-gradient(135deg, #004d8c 0%, #003366 100%);
+}
+
+.btn-gradient:hover::before {
+    left: 100%;
+}
+
+/* Style 2: Outlined Button with Hover Fill */
+.btn-outline {
+    display: inline-block;
+    padding: 15px 40px;
+    background: transparent;
+    color: #0066b4;
+    text-decoration: none;
+    border: 2px solid #0066b4;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn-outline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #0066b4;
+    transition: width 0.3s ease;
+    z-index: -1;
+}
+
+.btn-outline:hover {
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 102, 180, 0.3);
+}
+
+.btn-outline:hover::before {
+    width: 100%;
+}
+
+/* Style 3: Modern Card Button */
+.btn-card {
+    display: inline-block;
+    padding: 15px 40px;
+    background: white;
+    color: #0066b4;
+    text-decoration: none;
+    border-radius: 15px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #0066b4, #00a0e9);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.btn-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    background: #f8f9fa;
+}
+
+.btn-card:hover::before {
+    transform: scaleX(1);
+}
+
+/* Style 4: Minimalist Button */
+.btn-minimal {
+    display: inline-block;
+    padding: 15px 40px;
+    background: #0066b4;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 16px;
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
+    position: relative;
+}
+
+.btn-minimal:hover {
+    background: #004d8c;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 102, 180, 0.3);
+}
+
+/* Style 5: Pill Button with Icon */
+.btn-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #0066b4 0%, #00a0e9 100%);
+    color: white !important;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 102, 180, 0.3);
+    position: relative;
+}
+
+.btn-pill:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 102, 180, 0.4);
+    background: linear-gradient(135deg, #004d8c 0%, #0066b4 100%);
+    color: white !important;
+}
+
+.btn-pill::after {
+    content: '→';
+    transition: transform 0.3s ease;
+    color: white !important;
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+.btn-pill:hover::after {
+    transform: translateX(3px);
+}
+
+/* Override article-card styles for btn-pill buttons */
+.article-card .btn-pill {
+    color: white !important;
+    background: linear-gradient(135deg, #0066b4 0%, #00a0e9 100%);
+    gap: 8px;
+}
+
+.article-card .btn-pill:hover {
+    color: white !important;
+    background: linear-gradient(135deg, #004d8c 0%, #0066b4 100%);
+    transform: translateY(-2px);
+}
+
+.article-card .btn-pill::after {
+    margin-left: 3px;
+}
+
+/* Style 6: Professional Button with Border Animation */
+.btn-pro {
+    display: inline-block;
+    padding: 15px 40px;
+    background: white;
+    color: #0066b4;
+    text-decoration: none;
+    border: 2px solid #0066b4;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-pro::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0066b4;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+    z-index: -1;
+}
+
+.btn-pro:hover {
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 102, 180, 0.3);
+}
+
+.btn-pro:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Responsive adjustments for buttons */
+@media (max-width: 768px) {
+    .btn-gradient,
+    .btn-outline,
+    .btn-card,
+    .btn-minimal,
+    .btn-pill,
+    .btn-pro {
+        padding: 12px 30px;
+        font-size: 14px;
+    }
+    
+    .btn-pill {
+        padding: 10px 25px;
+        font-size: 13px;
+        color: white !important;
+        gap: 6px;
+    }
+    
+    .article-card .btn-pill {
+        color: white !important;
+        gap: 5px;
+    }
+    
+    .btn-pill::after {
+        margin-left: 3px;
+    }
+    
+    .article-card .btn-pill::after {
+        margin-left: 2px;
+    }
+}
+
+/* Override article navigation styles for btn-pill buttons */
+.article-navigation .btn-pill,
+.back-to-articles .btn-pill {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    padding: 12px 30px !important;
+    background: linear-gradient(135deg, #0066b4 0%, #00a0e9 100%) !important;
+    color: white !important;
+    text-decoration: none !important;
+    border-radius: 50px !important;
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    transition: all 0.3s ease !important;
+    border: none !important;
+    cursor: pointer !important;
+    box-shadow: 0 4px 15px rgba(0, 102, 180, 0.3) !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.article-navigation .btn-pill:hover,
+.back-to-articles .btn-pill:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(0, 102, 180, 0.4) !important;
+    background: linear-gradient(135deg, #004d8c 0%, #0066b4 100%) !important;
+    color: white !important;
+}
+
+/* Default: Next Article button - arrow on the right */
+.article-navigation .btn-pill::after {
+    content: '→' !important;
+    transition: transform 0.3s ease !important;
+    color: white !important;
+    margin-left: 5px !important;
+    font-weight: bold !important;
+}
+
+.article-navigation .btn-pill:hover::after {
+    transform: translateX(3px) !important;
+}
+
+/* Back to Articles button - arrow on the left */
+.back-to-articles .btn-pill::before {
+    content: '←' !important;
+    transition: transform 0.3s ease !important;
+    color: white !important;
+    margin-right: 5px !important;
+    font-weight: bold !important;
+}
+
+.back-to-articles .btn-pill::after {
+    content: '' !important;
+}
+
+.back-to-articles .btn-pill:hover::before {
+    transform: translateX(-3px) !important;
+}
+
+/* Previous Article button - arrow on the left */
+.article-navigation .btn-pill:first-child::before {
+    content: '←' !important;
+    transition: transform 0.3s ease !important;
+    color: white !important;
+    margin-right: 5px !important;
+    font-weight: bold !important;
+}
+
+.article-navigation .btn-pill:first-child::after {
+    content: '' !important;
+}
+
+.article-navigation .btn-pill:first-child:hover::before {
+    transform: translateX(-3px) !important;
+}
+
+/* Override for pages with only Next Article button */
+.article-navigation .btn-pill:only-child::before {
+    content: '' !important;
+}
+
+.article-navigation .btn-pill:only-child::after {
+    content: '→' !important;
+    transition: transform 0.3s ease !important;
+    color: white !important;
+    margin-left: 5px !important;
+    font-weight: bold !important;
+}
+
+.article-navigation .btn-pill:only-child:hover::after {
+    transform: translateX(3px) !important;
+}
+
+/* Fix Read More buttons in article cards */
+.article-card .btn-pill {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    padding: 12px 30px !important;
+    background: linear-gradient(135deg, #0066b4 0%, #00a0e9 100%) !important;
+    color: white !important;
+    text-decoration: none !important;
+    border-radius: 50px !important;
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    transition: all 0.3s ease !important;
+    border: none !important;
+    cursor: pointer !important;
+    box-shadow: 0 4px 15px rgba(0, 102, 180, 0.3) !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.article-card .btn-pill:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(0, 102, 180, 0.4) !important;
+    background: linear-gradient(135deg, #004d8c 0%, #0066b4 100%) !important;
+    color: white !important;
+}
+
+.article-card .btn-pill::after {
+    content: '→' !important;
+    transition: transform 0.3s ease !important;
+    color: white !important;
+    margin-left: 3px !important;
+    font-weight: bold !important;
+}
+
+.article-card .btn-pill:hover::after {
+    transform: translateX(3px) !important;
+}
+
+/* Override product card styles for btn-gradient buttons - FIX GRADIENT ISSUE */
+.product .btn-gradient {
+    display: inline-block !important;
+    margin-top: 20px !important;
+    padding: 15px 40px !important;
+    background: linear-gradient(135deg, #0066b4 0%, #004d8c 100%) !important;
+    background-image: linear-gradient(135deg, #0066b4 0%, #004d8c 100%) !important;
+    background-size: 100% 100% !important;
+    background-repeat: no-repeat !important;
+    color: white !important;
+    text-decoration: none !important;
+    border-radius: 30px !important;
+    font-weight: 600 !important;
+    font-size: 16px !important;
+    transition: all 0.3s ease !important;
+    border: none !important;
+    cursor: pointer !important;
+    box-shadow: 0 4px 15px rgba(0, 102, 180, 0.3) !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.product .btn-gradient::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: -100% !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent) !important;
+    transition: left 0.5s !important;
+    z-index: 10 !important;
+    pointer-events: none !important;
+}
+
+.product .btn-gradient:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(0, 102, 180, 0.4) !important;
+    background: linear-gradient(135deg, #004d8c 0%, #003366 100%) !important;
+    background-image: linear-gradient(135deg, #004d8c 0%, #003366 100%) !important;
+    color: white !important;
+}
+
+.product .btn-gradient:hover::before {
+    left: 100% !important;
+}
+
+/* Override contact form button styles for btn-gradient - FIX GRADIENT ISSUE */
+.contact-form .btn-gradient {
+    background: linear-gradient(135deg, #0066b4 0%, #004d8c 100%) !important;
+    background-image: linear-gradient(135deg, #0066b4 0%, #004d8c 100%) !important;
+    background-size: 100% 100% !important;
+    background-repeat: no-repeat !important;
+    color: white !important;
+    padding: 15px 40px !important;
+    border: none !important;
+    border-radius: 30px !important;
+    cursor: pointer !important;
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    transition: all 0.3s ease !important;
+    margin-top: 25px !important;
+    position: relative !important;
+    overflow: hidden !important;
+    box-shadow: 0 4px 15px rgba(0, 102, 180, 0.3) !important;
+}
+
+.contact-form .btn-gradient::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: -100% !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent) !important;
+    transition: left 0.5s !important;
+    z-index: 10 !important;
+    pointer-events: none !important;
+}
+
+.contact-form .btn-gradient:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(0, 102, 180, 0.4) !important;
+    background: linear-gradient(135deg, #004d8c 0%, #003366 100%) !important;
+    background-image: linear-gradient(135deg, #004d8c 0%, #003366 100%) !important;
+    color: white !important;
+}
+
+.contact-form .btn-gradient:hover::before {
+    left: 100% !important;
+}
+
+/* Remove conflicting styles for btn-gradient buttons */
+.product a.btn-gradient {
+    background: linear-gradient(135deg, #0066b4 0%, #004d8c 100%) !important;
+    background-image: linear-gradient(135deg, #0066b4 0%, #004d8c 100%) !important;
+    border: none !important;
+}
+
+.product a.btn-gradient:hover {
+    background: linear-gradient(135deg, #004d8c 0%, #003366 100%) !important;
+    background-image: linear-gradient(135deg, #004d8c 0%, #003366 100%) !important;
+    color: white !important;
+}
+
+.contact-form button.btn-gradient {
+    background: linear-gradient(135deg, #0066b4 0%, #004d8c 100%) !important;
+    background-image: linear-gradient(135deg, #0066b4 0%, #004d8c 100%) !important;
+}
+
+.contact-form button.btn-gradient:hover {
+    background: linear-gradient(135deg, #004d8c 0%, #003366 100%) !important;
+    background-image: linear-gradient(135deg, #004d8c 0%, #003366 100%) !important;
+    color: white !important;
+}
+
+/* Clean article navigation styles */
+.article-navigation .btn-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #0066b4 0%, #00a0e9 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 102, 180, 0.3);
+    position: relative;
+}
+
+.article-navigation .btn-pill:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 102, 180, 0.4);
+    background: linear-gradient(135deg, #004d8c 0%, #0066b4 100%);
+    color: white;
+}
+
+.article-navigation .btn-pill::after {
+    content: '→';
+    transition: transform 0.3s ease;
+    color: white;
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+.article-navigation .btn-pill:hover::after {
+    transform: translateX(3px);
+}
+
+/* Previous Article button - arrow on the left */
+.article-navigation .btn-pill:first-child::before {
+    content: '←';
+    transition: transform 0.3s ease;
+    color: white;
+    margin-right: 5px;
+    font-weight: bold;
+}
+
+.article-navigation .btn-pill:first-child::after {
+    content: '';
+}
+
+.article-navigation .btn-pill:first-child:hover::before {
+    transform: translateX(-3px);
+}
+
+/* Override for pages with only Next Article button */
+.article-navigation .btn-pill:only-child::before {
+    content: '';
+}
+
+.article-navigation .btn-pill:only-child::after {
+    content: '→';
+    transition: transform 0.3s ease;
+    color: white;
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+.article-navigation .btn-pill:only-child:hover::after {
+    transform: translateX(3px);
+}
+
+/* Back to Articles button */
+.back-to-articles .btn-pill::before {
+    content: '←';
+    transition: transform 0.3s ease;
+    color: white;
+    margin-right: 5px;
+    font-weight: bold;
+}
+
+.back-to-articles .btn-pill::after {
+    content: '';
+}
+
+.back-to-articles .btn-pill:hover::before {
+    transform: translateX(-3px);
+}
+
+/* Clean article card styles */
+.article-card .btn-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #0066b4 0%, #00a0e9 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 102, 180, 0.3);
+    position: relative;
+}
+
+.article-card .btn-pill:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 102, 180, 0.4);
+    background: linear-gradient(135deg, #004d8c 0%, #0066b4 100%);
+    color: white;
+}
+
+.article-card .btn-pill::after {
+    content: '→';
+    transition: transform 0.3s ease;
+    color: white;
+    margin-left: 3px;
+    font-weight: bold;
+}
+
+.article-card .btn-pill:hover::after {
+    transform: translateX(3px);
 }
