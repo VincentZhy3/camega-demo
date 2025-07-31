@@ -1776,8 +1776,9 @@ footer {
     background: #c82333;
 }
 
-.hidden {
-    display: none;
+.hidden,
+.header-user-info.hidden {
+    display: none !important;
 }
 
 .error-message {
@@ -1813,6 +1814,90 @@ footer {
     100% { transform: rotate(360deg); }
 }
 
+/* Global Header User Section */
+.user-section {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.header-user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+}
+
+.user-avatar-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #0066b4;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    transition: background 0.3s ease;
+}
+
+.user-avatar-btn:hover {
+    background: #005a9e;
+}
+
+.user-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    min-width: 150px;
+    z-index: 1000;
+    display: none;
+    margin-top: 5px;
+}
+
+.user-dropdown.show {
+    display: block;
+}
+
+.user-dropdown a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #333;
+    transition: background 0.3s ease;
+}
+
+.user-dropdown a:hover {
+    background: #f8f9fa;
+}
+
+.login-btn a {
+    padding: 8px 16px;
+    background: #0066b4;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.login-btn a:hover {
+    background: #005a9e;
+}
+
+#user-name-display {
+    font-size: 14px;
+    color: #666;
+    max-width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
 /* Mobile responsiveness for user management */
 @media (max-width: 768px) {
     .auth-container {
@@ -1825,7 +1910,7 @@ footer {
         padding: 20px;
     }
     
-    .user-info {
+    .header-user-info {
         flex-direction: column;
         text-align: center;
     }
@@ -1841,5 +1926,19 @@ footer {
     
     .social-btn {
         font-size: 14px;
+    }
+
+    .user-section {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+
+    .header-user-info {
+        gap: 5px;
+    }
+
+    #user-name-display {
+        max-width: 80px;
+        font-size: 12px;
     }
 }

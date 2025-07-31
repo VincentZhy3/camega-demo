@@ -1,6 +1,6 @@
 // Firebase Configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyD3jMCEirmbpKmE8_jxeTAtXIYfCca-TBs", // 替换为你的 Firebase API 密钥（不是 GitHub Token！）
+    apiKey: "AIzaSyD3jMCEirmbpKmE8_jxeTAtXIYfCca-TBs",
     authDomain: "camega-user-management.firebaseapp.com",
     projectId: "camega-user-management",
     storageBucket: "camega-user-management.firebasestorage.app",

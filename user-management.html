@@ -243,6 +243,8 @@
             try {
                 await auth.signOut();
                 currentUser = null;
+                localStorage.removeItem('currentUser');
+                localStorage.removeItem('authToken');
                 showAuthContainer();
             } catch (error) {
                 console.error('Logout error:', error);
@@ -261,6 +263,14 @@
                 document.getElementById('user-name').textContent = displayName;
                 document.getElementById('user-email').textContent = email;
                 document.getElementById('user-avatar').textContent = avatar;
+                
+                // Save user info to localStorage for other pages
+                const userInfo = {
+                    name: displayName,
+                    email: email,
+                    uid: currentUser.uid
+                };
+                localStorage.setItem('currentUser', JSON.stringify(userInfo));
             }
         }
 
