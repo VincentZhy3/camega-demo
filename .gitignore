@@ -1,5 +1,5 @@
 # Firebase Configuration - Keep API keys secure
-config.js
+# config.js
 
 # Environment files
 .env
