@@ -1,0 +1,1845 @@
+/* Reset & Base */
+body {
+    margin: 0;
+    font-family: 'Helvetica Neue', sans-serif;
+    line-height: 1.6;
+    background: #f5f5f5;
+    color: #333;
+    scroll-behavior: smooth;
+}
+
+/* Header & Nav */
+/* header {
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0;
+}
+header h1 { padding: 15px 0px 0px 20px; margin: 0; font-size: 24px; color: #00796b; }
+header h1 a { margin: 0; font-size: 24px; color: #00796b; }
+nav {
+    background: #fafafa;
+    text-align: center;
+}
+nav a {
+    margin-left: 20px; text-decoration: none; color: #333; font-weight: bold; padding-left: 50px; padding-right: 50px;
+} */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    padding: 15px 20px;
+    position: sticky;
+    top: 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+header h1 {
+    margin: 0;
+}
+
+header h1 img {
+    height: 60px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+header h1 img:hover {
+    transform: scale(1.05);
+}
+
+.nav-toggle {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: #0066b4;
+    transition: transform 0.3s ease;
+}
+
+.nav-toggle:hover {
+    transform: scale(1.1);
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding: 8px 40px;
+    margin-bottom: 12px;
+    margin-right: 30px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: #0066b4;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+nav a:hover::after {
+    width: 80%;
+}
+
+nav a:hover {
+    color: #0066b4;
+}
+
+/* Hero */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('assets/product.jpg') no-repeat center/cover;
+    height: 600px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 0 0 10px rgba(0,0,0,0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(0,102,180,0.8), rgba(0,0,0,0.6));
+    z-index: 1;
+}
+
+.hero h2, .hero p {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.hero h2 {
+    font-size: 56px;
+    margin-bottom: 20px;
+    animation: fadeInDown 1s ease;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.hero p {
+    font-size: 24px;
+    animation: fadeInUp 1s ease;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.hero .cta-button {
+    display: inline-block;
+    padding: 15px 40px;
+    background: #0066b4;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border: 2px solid #0066b4;
+    animation: fadeInUp 1.2s ease;
+}
+
+.hero .cta-button:hover {
+    background: transparent;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Products */
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    padding: 80px 40px;
+    background: #fff;
+    position: relative;
+}
+
+.products::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: linear-gradient(to bottom, #f8f9fa, #fff);
+}
+
+.product {
+    background: #fff;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.product::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: #0066b4;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.product:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+.product:hover::before {
+    transform: scaleX(1);
+}
+
+.product img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 15px;
+    transition: all 0.4s ease;
+    margin-bottom: 20px;
+}
+
+.product:hover img {
+    transform: scale(1.05) rotate(2deg);
+}
+
+.product h3 {
+    margin-top: 20px;
+    color: #0066b4;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.product p {
+    font-size: 16px;
+    color: #666;
+    margin: 15px 0;
+    line-height: 1.8;
+}
+
+.product a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 15px 40px;
+    background: #0066b4;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 102, 180, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.product a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.product a:hover::before {
+    left: 100%;
+}
+
+.product a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 102, 180, 0.4);
+    background: #004d8c;
+}
+
+/* Articles List */
+.articles {
+    padding: 60px 40px;
+    background: #fff;
+    max-width: 800px;
+    margin: auto;
+}
+.article {
+    background: #fafafa;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    margin-bottom: 30px;
+}
+.article h3 { margin-top: 0; }
+.article a  {
+    color: #00796b;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Content Pages */
+.content {
+    max-width: 800px;
+    margin: auto;
+    background: #fff;
+    padding: 40px;
+}
+.content h2 { color: #00796b; }
+
+/* Contact */
+.contact {
+    padding: 100px 40px;
+    text-align: center;
+    background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('assets/pattern.png') repeat;
+    opacity: 0.05;
+    z-index: 0;
+}
+
+.contact h2 {
+    font-size: 42px;
+    margin-bottom: 40px;
+    color: #0066b4;
+    position: relative;
+    z-index: 1;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 1;
+    transition: transform 0.3s ease;
+}
+
+.contact-form:hover {
+    transform: translateY(-5px);
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    margin: 12px 0;
+    border: 2px solid #eee;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #0066b4;
+    box-shadow: 0 0 0 3px rgba(0,102,180,0.1);
+}
+
+.contact-form button {
+    background: #0066b4;
+    color: white;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-top: 25px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 102, 180, 0.3);
+}
+
+.contact-form button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.contact-form button:hover::before {
+    left: 100%;
+}
+
+.contact-form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 102, 180, 0.4);
+    background: #004d8c;
+}
+
+.contact-info {
+    margin-top: 40px;
+    position: relative;
+    z-index: 1;
+}
+
+.contact-info p {
+    font-size: 18px;
+    color: #333;
+    margin: 15px 0;
+}
+
+.contact-info a {
+    color: #0066b4;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.contact-info a:hover {
+    color: #004d8c;
+    text-decoration: underline;
+}
+
+/* Footer */
+footer {
+    background: #f8f9fa;
+    padding: 40px 0 20px;
+    color: #333;
+    border-top: 1px solid #e9ecef;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 40px;
+    padding: 0 20px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-section h4 {
+    color: #0066b4;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.footer-section a {
+    color: #495057;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: block;
+    margin: 8px 0;
+    font-size: 15px;
+}
+
+.footer-section a:hover {
+    color: #0066b4;
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #e9ecef;
+    color: #6c757d;
+    font-size: 14px;
+}
+
+/* Article nav buttons */
+.nav-buttons {
+    margin: 50px 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.nav-buttons a {
+    padding: 10px 20px;
+    background: #00796b;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* Back-to-articles link */
+.back-link {
+    text-align: center;
+    margin-top: 40px;
+}
+.back-link a {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #00796b;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #0066b4;
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+}
+
+.back-to-top:hover {
+    transform: translateY(-5px);
+    background: #004d8c;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    header {
+        padding: 10px;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+
+    nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        padding: 20px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    nav.show {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav a {
+        margin: 10px 0;
+        padding: 10px 20px;
+    }
+
+    .hero {
+        height: 500px;
+    }
+
+    .hero h2 {
+        font-size: 36px;
+    }
+
+    .hero p {
+        font-size: 18px;
+    }
+
+    .hero .cta-button {
+        padding: 12px 30px;
+        font-size: 16px;
+    }
+
+    .products {
+        padding: 40px 20px;
+        gap: 30px;
+    }
+
+    .product {
+        padding: 20px;
+    }
+
+    .product h3 {
+        font-size: 24px;
+    }
+
+    .contact {
+        padding: 60px 20px;
+    }
+
+    .contact h2 {
+        font-size: 32px;
+    }
+
+    .contact-form {
+        padding: 30px 20px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        padding: 12px;
+    }
+
+    .contact-form button {
+        padding: 12px 30px;
+        font-size: 16px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .footer-section {
+        text-align: center;
+    }
+
+    .contact-info p {
+        font-size: 16px;
+    }
+}
+
+/* Article Page Styles */
+.article-hero {
+    height: 100px;
+    background: #0066b4;
+    color: white;
+    padding: 80px 20px;
+    text-align: center;
+    position: relative;
+}
+
+.article-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.article-hero h2,
+.article-hero p {
+    position: relative;
+    z-index: 2;
+}
+
+.article-hero h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    animation: fadeInDown 1s ease;
+}
+
+.article-hero p {
+    font-size: 18px;
+    animation: fadeInUp 1s ease;
+}
+
+.article-content {
+    padding: 40px;
+    background: #fff;
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border-radius: 10px;
+}
+
+.article-content h2 {
+    color: #0066b4;
+    margin-top: 30px;
+    font-size: 28px;
+}
+
+.article-content h3 {
+    color: #0066b4;
+    margin-top: 25px;
+    font-size: 24px;
+}
+
+.article-content p {
+    margin-bottom: 20px;
+    line-height: 1.8;
+    color: #444;
+}
+
+.article-content ul {
+    margin: 20px 0;
+    padding-left: 20px;
+}
+
+.article-content li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.article-content strong {
+    color: #0066b4;
+}
+
+.article-content em {
+    color: #666;
+}
+
+.article-navigation {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.article-navigation a {
+    padding: 12px 24px;
+    background: #0066b4;
+    color: white !important;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    border: 2px solid #0066b4;
+}
+
+.article-navigation a:hover {
+    background: transparent;
+    color: #0066b4 !important;
+    transform: translateY(-2px);
+}
+
+.back-to-articles {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.back-to-articles a {
+    display: inline-block;
+    padding: 12px 24px;
+    background: #0066b4;
+    color: white !important;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    border: 2px solid #0066b4;
+}
+
+.back-to-articles a:hover {
+    background: transparent;
+    color: #0066b4 !important;
+    transform: translateY(-2px);
+}
+
+/* Articles List Page */
+.article-card {
+    background: #fafafa;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.article-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.article-card h3 {
+    color: #0066b4;
+    margin-top: 0;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.article-card p {
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.article-card a {
+    color: #0066b4;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.article-card a:hover {
+    color: #004d8c;
+    transform: translateX(5px);
+}
+
+@media (max-width: 768px) {
+    .article-hero {
+        height: auto;
+        padding: 40px 20px;
+    }
+
+    .article-hero h2 {
+        font-size: 28px;
+    }
+
+    .article-hero p {
+        font-size: 16px;
+    }
+
+    .article-content {
+        padding: 20px;
+    }
+
+    .article-content h2 {
+        font-size: 24px;
+    }
+
+    .article-content h3 {
+        font-size: 20px;
+    }
+
+    .articles {
+        padding: 30px 20px;
+    }
+
+    .article-card {
+        padding: 20px;
+    }
+
+    .article-card h3 {
+        font-size: 18px;
+    }
+}
+
+/* 更兼容的渐变动画文本 */
+@keyframes gradient-shift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.animated-gradient-text {
+    background: linear-gradient(
+        90deg,
+        #0066b4,
+        #ffd700,
+        #ff6b35,
+        #00a0e9,
+        #ffd700,
+        #0066b4
+    );
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    animation: gradient-shift 5s ease-in-out infinite;
+    font-weight: bold;
+    text-shadow: none;
+    display: inline-block;
+}
+
+/* 确保在文章页面中渐变色不被覆盖 */
+.article-hero h2.animated-gradient-text,
+.article-card h3.animated-gradient-text,
+.hero h2.animated-gradient-text {
+    background: linear-gradient(
+        90deg,
+        #0066b4,
+        #ffd700,
+        #ff6b35,
+        #00a0e9,
+        #ffd700,
+        #0066b4
+    );
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    animation: gradient-shift 5s ease-in-out infinite;
+    font-weight: bold;
+    text-shadow: none;
+    display: inline-block;
+}
+
+/* Professional Modern Button Styles */
+
+/* Style 1: Gradient Button with Subtle Shadow */
+.btn-gradient {
+    display: inline-block;
+    padding: 15px 40px;
+    background: linear-gradient(135deg, #0066b4 0%, #004d8c 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 102, 180, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-gradient::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.btn-gradient:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 102, 180, 0.4);
+    background: linear-gradient(135deg, #004d8c 0%, #003366 100%);
+}
+
+.btn-gradient:hover::before {
+    left: 100%;
+}
+
+/* Style 2: Outlined Button with Hover Fill */
+.btn-outline {
+    display: inline-block;
+    padding: 15px 40px;
+    background: transparent;
+    color: #0066b4;
+    text-decoration: none;
+    border: 2px solid #0066b4;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn-outline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #0066b4;
+    transition: width 0.3s ease;
+    z-index: -1;
+}
+
+.btn-outline:hover {
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 102, 180, 0.3);
+}
+
+.btn-outline:hover::before {
+    width: 100%;
+}
+
+/* Style 3: Modern Card Button */
+.btn-card {
+    display: inline-block;
+    padding: 15px 40px;
+    background: white;
+    color: #0066b4;
+    text-decoration: none;
+    border-radius: 15px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #0066b4, #00a0e9);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.btn-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    background: #f8f9fa;
+}
+
+.btn-card:hover::before {
+    transform: scaleX(1);
+}
+
+/* Style 4: Minimalist Button */
+.btn-minimal {
+    display: inline-block;
+    padding: 15px 40px;
+    background: #0066b4;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 16px;
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
+    position: relative;
+}
+
+.btn-minimal:hover {
+    background: #004d8c;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 102, 180, 0.3);
+}
+
+/* Style 5: Pill Button with Icon */
+.btn-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #0066b4 0%, #00a0e9 100%);
+    color: white !important;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 102, 180, 0.3);
+    position: relative;
+}
+
+.btn-pill:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 102, 180, 0.4);
+    background: linear-gradient(135deg, #004d8c 0%, #0066b4 100%);
+    color: white !important;
+}
+
+.btn-pill::after {
+    content: '→';
+    transition: transform 0.3s ease;
+    color: white !important;
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+.btn-pill:hover::after {
+    transform: translateX(3px);
+}
+
+/* Override article-card styles for btn-pill buttons */
+.article-card .btn-pill {
+    color: white !important;
+    background: linear-gradient(135deg, #0066b4 0%, #00a0e9 100%);
+    gap: 8px;
+}
+
+.article-card .btn-pill:hover {
+    color: white !important;
+    background: linear-gradient(135deg, #004d8c 0%, #0066b4 100%);
+    transform: translateY(-2px);
+}
+
+.article-card .btn-pill::after {
+    margin-left: 3px;
+}
+
+/* Style 6: Professional Button with Border Animation */
+.btn-pro {
+    display: inline-block;
+    padding: 15px 40px;
+    background: white;
+    color: #0066b4;
+    text-decoration: none;
+    border: 2px solid #0066b4;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-pro::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0066b4;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+    z-index: -1;
+}
+
+.btn-pro:hover {
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 102, 180, 0.3);
+}
+
+.btn-pro:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Responsive adjustments for buttons */
+@media (max-width: 768px) {
+    .btn-gradient,
+    .btn-outline,
+    .btn-card,
+    .btn-minimal,
+    .btn-pill,
+    .btn-pro {
+        padding: 12px 30px;
+        font-size: 14px;
+    }
+    
+    .btn-pill {
+        padding: 10px 25px;
+        font-size: 13px;
+        color: white !important;
+        gap: 6px;
+    }
+    
+    .article-card .btn-pill {
+        color: white !important;
+        gap: 5px;
+    }
+    
+    .btn-pill::after {
+        margin-left: 3px;
+    }
+    
+    .article-card .btn-pill::after {
+        margin-left: 2px;
+    }
+}
+
+/* Override article navigation styles for btn-pill buttons */
+.article-navigation .btn-pill,
+.back-to-articles .btn-pill {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    padding: 12px 30px !important;
+    background: linear-gradient(135deg, #0066b4 0%, #00a0e9 100%) !important;
+    color: white !important;
+    text-decoration: none !important;
+    border-radius: 50px !important;
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    transition: all 0.3s ease !important;
+    border: none !important;
+    cursor: pointer !important;
+    box-shadow: 0 4px 15px rgba(0, 102, 180, 0.3) !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.article-navigation .btn-pill:hover,
+.back-to-articles .btn-pill:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(0, 102, 180, 0.4) !important;
+    background: linear-gradient(135deg, #004d8c 0%, #0066b4 100%) !important;
+    color: white !important;
+}
+
+/* Default: Next Article button - arrow on the right */
+.article-navigation .btn-pill::after {
+    content: '→' !important;
+    transition: transform 0.3s ease !important;
+    color: white !important;
+    margin-left: 5px !important;
+    font-weight: bold !important;
+}
+
+.article-navigation .btn-pill:hover::after {
+    transform: translateX(3px) !important;
+}
+
+/* Back to Articles button - arrow on the left */
+.back-to-articles .btn-pill::before {
+    content: '←' !important;
+    transition: transform 0.3s ease !important;
+    color: white !important;
+    margin-right: 5px !important;
+    font-weight: bold !important;
+}
+
+.back-to-articles .btn-pill::after {
+    content: '' !important;
+}
+
+.back-to-articles .btn-pill:hover::before {
+    transform: translateX(-3px) !important;
+}
+
+/* Previous Article button - arrow on the left */
+.article-navigation .btn-pill:first-child::before {
+    content: '←' !important;
+    transition: transform 0.3s ease !important;
+    color: white !important;
+    margin-right: 5px !important;
+    font-weight: bold !important;
+}
+
+.article-navigation .btn-pill:first-child::after {
+    content: '' !important;
+}
+
+.article-navigation .btn-pill:first-child:hover::before {
+    transform: translateX(-3px) !important;
+}
+
+/* Override for pages with only Next Article button */
+.article-navigation .btn-pill:only-child::before {
+    content: '' !important;
+}
+
+.article-navigation .btn-pill:only-child::after {
+    content: '→' !important;
+    transition: transform 0.3s ease !important;
+    color: white !important;
+    margin-left: 5px !important;
+    font-weight: bold !important;
+}
+
+.article-navigation .btn-pill:only-child:hover::after {
+    transform: translateX(3px) !important;
+}
+
+/* Fix Read More buttons in article cards */
+.article-card .btn-pill {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    padding: 12px 30px !important;
+    background: linear-gradient(135deg, #0066b4 0%, #00a0e9 100%) !important;
+    color: white !important;
+    text-decoration: none !important;
+    border-radius: 50px !important;
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    transition: all 0.3s ease !important;
+    border: none !important;
+    cursor: pointer !important;
+    box-shadow: 0 4px 15px rgba(0, 102, 180, 0.3) !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.article-card .btn-pill:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(0, 102, 180, 0.4) !important;
+    background: linear-gradient(135deg, #004d8c 0%, #0066b4 100%) !important;
+    color: white !important;
+}
+
+.article-card .btn-pill::after {
+    content: '→' !important;
+    transition: transform 0.3s ease !important;
+    color: white !important;
+    margin-left: 3px !important;
+    font-weight: bold !important;
+}
+
+.article-card .btn-pill:hover::after {
+    transform: translateX(3px) !important;
+}
+
+/* Override product card styles for btn-gradient buttons - FIX GRADIENT ISSUE */
+.product .btn-gradient {
+    display: inline-block !important;
+    margin-top: 20px !important;
+    padding: 15px 40px !important;
+    background: linear-gradient(135deg, #0066b4 0%, #004d8c 100%) !important;
+    background-image: linear-gradient(135deg, #0066b4 0%, #004d8c 100%) !important;
+    background-size: 100% 100% !important;
+    background-repeat: no-repeat !important;
+    color: white !important;
+    text-decoration: none !important;
+    border-radius: 30px !important;
+    font-weight: 600 !important;
+    font-size: 16px !important;
+    transition: all 0.3s ease !important;
+    border: none !important;
+    cursor: pointer !important;
+    box-shadow: 0 4px 15px rgba(0, 102, 180, 0.3) !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.product .btn-gradient::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: -100% !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent) !important;
+    transition: left 0.5s !important;
+    z-index: 10 !important;
+    pointer-events: none !important;
+}
+
+.product .btn-gradient:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(0, 102, 180, 0.4) !important;
+    background: linear-gradient(135deg, #004d8c 0%, #003366 100%) !important;
+    background-image: linear-gradient(135deg, #004d8c 0%, #003366 100%) !important;
+    color: white !important;
+}
+
+.product .btn-gradient:hover::before {
+    left: 100% !important;
+}
+
+/* Override contact form button styles for btn-gradient - FIX GRADIENT ISSUE */
+.contact-form .btn-gradient {
+    background: linear-gradient(135deg, #0066b4 0%, #004d8c 100%) !important;
+    background-image: linear-gradient(135deg, #0066b4 0%, #004d8c 100%) !important;
+    background-size: 100% 100% !important;
+    background-repeat: no-repeat !important;
+    color: white !important;
+    padding: 15px 40px !important;
+    border: none !important;
+    border-radius: 30px !important;
+    cursor: pointer !important;
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    transition: all 0.3s ease !important;
+    margin-top: 25px !important;
+    position: relative !important;
+    overflow: hidden !important;
+    box-shadow: 0 4px 15px rgba(0, 102, 180, 0.3) !important;
+}
+
+.contact-form .btn-gradient::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: -100% !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent) !important;
+    transition: left 0.5s !important;
+    z-index: 10 !important;
+    pointer-events: none !important;
+}
+
+.contact-form .btn-gradient:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(0, 102, 180, 0.4) !important;
+    background: linear-gradient(135deg, #004d8c 0%, #003366 100%) !important;
+    background-image: linear-gradient(135deg, #004d8c 0%, #003366 100%) !important;
+    color: white !important;
+}
+
+.contact-form .btn-gradient:hover::before {
+    left: 100% !important;
+}
+
+/* Remove conflicting styles for btn-gradient buttons */
+.product a.btn-gradient {
+    background: linear-gradient(135deg, #0066b4 0%, #004d8c 100%) !important;
+    background-image: linear-gradient(135deg, #0066b4 0%, #004d8c 100%) !important;
+    border: none !important;
+}
+
+.product a.btn-gradient:hover {
+    background: linear-gradient(135deg, #004d8c 0%, #003366 100%) !important;
+    background-image: linear-gradient(135deg, #004d8c 0%, #003366 100%) !important;
+    color: white !important;
+}
+
+.contact-form button.btn-gradient {
+    background: linear-gradient(135deg, #0066b4 0%, #004d8c 100%) !important;
+    background-image: linear-gradient(135deg, #0066b4 0%, #004d8c 100%) !important;
+}
+
+.contact-form button.btn-gradient:hover {
+    background: linear-gradient(135deg, #004d8c 0%, #003366 100%) !important;
+    background-image: linear-gradient(135deg, #004d8c 0%, #003366 100%) !important;
+    color: white !important;
+}
+
+/* Clean article navigation styles */
+.article-navigation .btn-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #0066b4 0%, #00a0e9 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 102, 180, 0.3);
+    position: relative;
+}
+
+.article-navigation .btn-pill:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 102, 180, 0.4);
+    background: linear-gradient(135deg, #004d8c 0%, #0066b4 100%);
+    color: white;
+}
+
+.article-navigation .btn-pill::after {
+    content: '→';
+    transition: transform 0.3s ease;
+    color: white;
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+.article-navigation .btn-pill:hover::after {
+    transform: translateX(3px);
+}
+
+/* Previous Article button - arrow on the left */
+.article-navigation .btn-pill:first-child::before {
+    content: '←';
+    transition: transform 0.3s ease;
+    color: white;
+    margin-right: 5px;
+    font-weight: bold;
+}
+
+.article-navigation .btn-pill:first-child::after {
+    content: '';
+}
+
+.article-navigation .btn-pill:first-child:hover::before {
+    transform: translateX(-3px);
+}
+
+/* Override for pages with only Next Article button */
+.article-navigation .btn-pill:only-child::before {
+    content: '';
+}
+
+.article-navigation .btn-pill:only-child::after {
+    content: '→';
+    transition: transform 0.3s ease;
+    color: white;
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+.article-navigation .btn-pill:only-child:hover::after {
+    transform: translateX(3px);
+}
+
+/* Back to Articles button */
+.back-to-articles .btn-pill::before {
+    content: '←';
+    transition: transform 0.3s ease;
+    color: white;
+    margin-right: 5px;
+    font-weight: bold;
+}
+
+.back-to-articles .btn-pill::after {
+    content: '';
+}
+
+.back-to-articles .btn-pill:hover::before {
+    transform: translateX(-3px);
+}
+
+/* Clean article card styles */
+.article-card .btn-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #0066b4 0%, #00a0e9 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 102, 180, 0.3);
+    position: relative;
+}
+
+.article-card .btn-pill:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 102, 180, 0.4);
+    background: linear-gradient(135deg, #004d8c 0%, #0066b4 100%);
+    color: white;
+}
+
+.article-card .btn-pill::after {
+    content: '→';
+    transition: transform 0.3s ease;
+    color: white;
+    margin-left: 3px;
+    font-weight: bold;
+}
+
+.article-card .btn-pill:hover::after {
+    transform: translateX(3px);
+}
+
+/* User Management Styles */
+.auth-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.auth-tabs {
+    display: flex;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.auth-tab {
+    flex: 1;
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.auth-tab.active {
+    border-bottom-color: #0066b4;
+    color: #0066b4;
+    font-weight: bold;
+}
+
+.auth-form {
+    display: none;
+}
+
+.auth-form.active {
+    display: block;
+}
+
+.auth-form input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.auth-form button {
+    width: 100%;
+    padding: 12px;
+    background: #0066b4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.auth-form button:hover {
+    background: #005a9e;
+}
+
+.social-login {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.social-btn {
+    width: 100%;
+    padding: 12px;
+    margin: 5px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: white;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.social-btn:hover {
+    background: #f8f9fa;
+}
+
+.user-dashboard {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.user-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #0066b4;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+.user-details h3 {
+    margin: 0 0 5px 0;
+    color: #333;
+}
+
+.user-details p {
+    margin: 0;
+    color: #666;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.dashboard-card {
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #0066b4;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-2px);
+}
+
+.dashboard-card h4 {
+    margin: 0 0 10px 0;
+    color: #333;
+}
+
+.dashboard-card p {
+    margin: 0;
+    color: #666;
+}
+
+.logout-btn {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.logout-btn:hover {
+    background: #c82333;
+}
+
+.hidden {
+    display: none;
+}
+
+.error-message {
+    color: #dc3545;
+    margin: 10px 0;
+    padding: 10px;
+    background: #f8d7da;
+    border-radius: 5px;
+    border: 1px solid #f5c6cb;
+}
+
+.success-message {
+    color: #155724;
+    margin: 10px 0;
+    padding: 10px;
+    background: #d4edda;
+    border-radius: 5px;
+    border: 1px solid #c3e6cb;
+}
+
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #0066b4;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Mobile responsiveness for user management */
+@media (max-width: 768px) {
+    .auth-container {
+        margin: 20px auto;
+        padding: 20px;
+    }
+    
+    .user-dashboard {
+        margin: 20px auto;
+        padding: 20px;
+    }
+    
+    .user-info {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .user-avatar {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+    
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .social-btn {
+        font-size: 14px;
+    }
+}
