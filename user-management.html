@@ -98,6 +98,40 @@
     <script>
         // Use the global user authentication system
         let currentUser = null;
+        
+        // Check if user is already logged in when page loads
+        window.addEventListener('load', function() {
+            // Check Firebase auth state first
+            if (typeof firebase !== 'undefined' && firebase.auth) {
+                firebase.auth().onAuthStateChanged((user) => {
+                    if (user) {
+                        // User is signed in with Firebase
+                        const userInfo = {
+                            name: user.displayName || user.email.split('@')[0],
+                            email: user.email,
+                            uid: user.uid
+                        };
+                        localStorage.setItem('currentUser', JSON.stringify(userInfo));
+                        currentUser = userInfo;
+                        showUserDashboard();
+                    } else {
+                        // Check localStorage as fallback
+                        const user = JSON.parse(localStorage.getItem('currentUser') || 'null');
+                        if (user) {
+                            currentUser = user;
+                            showUserDashboard();
+                        }
+                    }
+                });
+            } else {
+                // Fallback to localStorage only
+                const user = JSON.parse(localStorage.getItem('currentUser') || 'null');
+                if (user) {
+                    currentUser = user;
+                    showUserDashboard();
+                }
+            }
+        });
 
         function switchTab(tab) {
             document.querySelectorAll('.auth-tab').forEach(t => t.classList.remove('active'));
@@ -148,6 +182,15 @@
             try {
                 const userCredential = await firebase.auth().signInWithEmailAndPassword(email, password);
                 currentUser = userCredential.user;
+                
+                // Save user info to localStorage
+                const userInfo = {
+                    name: currentUser.displayName || currentUser.email.split('@')[0],
+                    email: currentUser.email,
+                    uid: currentUser.uid
+                };
+                localStorage.setItem('currentUser', JSON.stringify(userInfo));
+                
                 showUserDashboard();
                 showMessage('login', 'Login successful!');
             } catch (error) {
@@ -199,6 +242,15 @@
                 });
                 
                 currentUser = userCredential.user;
+                
+                // Save user info to localStorage
+                const userInfo = {
+                    name: currentUser.displayName || currentUser.email.split('@')[0],
+                    email: currentUser.email,
+                    uid: currentUser.uid
+                };
+                localStorage.setItem('currentUser', JSON.stringify(userInfo));
+                
                 showUserDashboard();
                 showMessage('register', 'Registration successful!');
             } catch (error) {
@@ -228,6 +280,15 @@
             try {
                 const result = await firebase.auth().signInWithPopup(provider);
                 currentUser = result.user;
+                
+                // Save user info to localStorage
+                const userInfo = {
+                    name: currentUser.displayName || currentUser.email.split('@')[0],
+                    email: currentUser.email,
+                    uid: currentUser.uid
+                };
+                localStorage.setItem('currentUser', JSON.stringify(userInfo));
+                
                 showUserDashboard();
                 showMessage('login', 'Login successful!');
             } catch (error) {

@@ -1907,6 +1907,7 @@ footer::before {
     border-radius: 5px;
     cursor: pointer;
     transition: background 0.3s ease;
+    margin-left: 15px;
 }
 
 .logout-btn:hover {
@@ -2132,5 +2133,9 @@ footer::before {
         margin-top: 0;
         margin-bottom: 0;
         box-sizing: border-box;
+    }
+    
+    .logout-btn {
+        margin-left: 10px;
     }
 }
