@@ -47,6 +47,7 @@ class UserAuthManager {
 
         const userAvatarBtn = document.getElementById('user-avatar-btn');
         const userNameDisplay = document.getElementById('user-name-display');
+        const userSection = document.querySelector('.user-section');
 
         if (user) {
             userInfo.classList.remove('hidden');
@@ -57,14 +58,24 @@ class UserAuthManager {
             if (userNameDisplay) {
                 userNameDisplay.textContent = user.name || user.email;
             }
+            if (userSection) {
+                userSection.classList.add('logged-in');
+            }
         } else {
             userInfo.classList.add('hidden');
             loginBtn.classList.remove('hidden');
+            if (userSection) {
+                userSection.classList.remove('logged-in');
+            }
         }
     }
 
     async handleLogout() {
         try {
+            // Clear localStorage first
+            localStorage.removeItem('currentUser');
+            localStorage.removeItem('authToken');
+            
             // Sign out from Firebase if available
             if (this.auth) {
                 await this.auth.signOut();
@@ -72,22 +83,22 @@ class UserAuthManager {
                 await firebase.auth().signOut();
             }
             
-            // Clear localStorage
-            localStorage.removeItem('currentUser');
-            localStorage.removeItem('authToken');
-            
-            // Update UI
+            // Update UI immediately
             this.checkUserStatus();
             
-            // Reload page to ensure clean state
-            window.location.reload();
+            // Force reload after a short delay to ensure clean state
+            setTimeout(() => {
+                window.location.reload();
+            }, 100);
         } catch (error) {
             console.error('Logout error:', error);
-            // Fallback: just clear localStorage
+            // Fallback: just clear localStorage and reload
             localStorage.removeItem('currentUser');
             localStorage.removeItem('authToken');
             this.checkUserStatus();
-            window.location.reload();
+            setTimeout(() => {
+                window.location.reload();
+            }, 100);
         }
     }
 

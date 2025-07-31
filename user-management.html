@@ -241,13 +241,30 @@
 
         async function handleLogout() {
             try {
+                // Clear localStorage first
+                localStorage.removeItem('currentUser');
+                localStorage.removeItem('authToken');
+                
+                // Sign out from Firebase
                 await auth.signOut();
                 currentUser = null;
+                
+                // Show auth container
+                showAuthContainer();
+                
+                // Force reload after a short delay to ensure clean state
+                setTimeout(() => {
+                    window.location.reload();
+                }, 100);
+            } catch (error) {
+                console.error('Logout error:', error);
+                // Fallback: just clear localStorage and reload
                 localStorage.removeItem('currentUser');
                 localStorage.removeItem('authToken');
                 showAuthContainer();
-            } catch (error) {
-                console.error('Logout error:', error);
+                setTimeout(() => {
+                    window.location.reload();
+                }, 100);
             }
         }
 

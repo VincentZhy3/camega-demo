@@ -1900,6 +1900,10 @@ footer::before {
     margin-bottom: 17px;
 }
 
+.user-section.logged-in {
+    margin-bottom: 10px;
+}
+
 .header-user-info {
     display: flex;
     align-items: center;
