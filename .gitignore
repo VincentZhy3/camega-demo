@@ -1,6 +1,3 @@
-# Firebase Configuration - Keep API keys secure
-config.js
-
 # Environment files
 .env
 .env.local

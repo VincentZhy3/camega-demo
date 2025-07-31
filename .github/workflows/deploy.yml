@@ -1,0 +1,37 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      
+    - name: Create config.js
+      env:
+        FIREBASE_API_KEY: ${{ secrets.FIREBASE_API_KEY }}
+      run: |
+        cat > config.js << EOF
+        // Firebase Configuration
+        const firebaseConfig = {
+            apiKey: "$FIREBASE_API_KEY",
+            authDomain: "camega-user-management.firebaseapp.com",
+            projectId: "camega-user-management",
+            storageBucket: "camega-user-management.firebasestorage.app",
+            messagingSenderId: "54421041663",
+            appId: "1:54421041663:web:b0e461c4c68d3d248ef7ca",
+            measurementId: "G-4C9TRTLH6X"
+        };
+        EOF
+        
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: . 
