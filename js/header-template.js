@@ -67,8 +67,24 @@ class HeaderTemplate {
         // Setup global toggleNav function
         window.toggleNav = function() {
             const nav = document.getElementById('main-nav');
+            const navToggle = document.querySelector('.nav-toggle');
+            
+            console.log('toggleNav called');
+            
             if (nav) {
                 nav.classList.toggle('show');
+                console.log('nav show class:', nav.classList.contains('show'));
+                
+                // Update button state
+                if (navToggle) {
+                    if (nav.classList.contains('show')) {
+                        navToggle.classList.add('active');
+                        console.log('added active class');
+                    } else {
+                        navToggle.classList.remove('active');
+                        console.log('removed active class');
+                    }
+                }
             }
         };
     }

@@ -5,16 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Canada's NPN System: A Gold Standard in Supplement Safety | Camega</title>
   <meta name="description" content="Learn why Camega products are proudly NPN-certified — and how Canada's health regulations protect you.">
-  <meta name="keywords" content="NPN, Canada supplements, natural health products, Omega-3, supplement safety, Camega, Health Canada">
-  <meta property="og:title" content="Canada's NPN System: A Gold Standard in Supplement Safety">
-  <meta property="og:description" content="Discover why NPN certification matters — and why Camega products go beyond the basics.">
-  <meta property="og:type" content="article">
-  <meta property="og:url" content="https://camega.com/articles/canada-npn-standard.html">
-  <meta property="og:image" content="https://camega.com/assets/logo.jpg">
   <meta name="apple-mobile-web-app-title" content="Camega">
   <meta name="application-name" content="Camega">
   <link rel="stylesheet" href="../styles.css">
-
   <link rel="icon" type="image/png" href="../assets/favicon/favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/png" sizes="192x192" href="../assets/favicon/web-app-manifest-192x192.png">
   <link rel="icon" type="image/png" sizes="512x512" href="../assets/favicon/web-app-manifest-512x512.png">
@@ -22,12 +15,9 @@
   <link rel="shortcut icon" href="../assets/favicon/favicon.ico" />
   <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png" />
   <link rel="manifest" href="../assets/favicon/site.webmanifest" />
+  <script src="../js/header-template.js"></script>
+  <script src="../js/footer-template.js"></script>
   <script>
-    function toggleNav() {
-      const nav = document.getElementById('main-nav');
-      nav.classList.toggle('show');
-    }
-
     function scrollToTop() {
       window.scrollTo({
         top: 0,
@@ -43,102 +33,6 @@
         backToTop.classList.remove('visible');
       }
     };
-
-    // User authentication functions
-    function checkUserStatus() {
-      const user = JSON.parse(localStorage.getItem('currentUser') || 'null');
-      const userInfo = document.getElementById('user-info');
-      const loginBtn = document.getElementById('login-btn');
-      const userAvatarBtn = document.getElementById('user-avatar-btn');
-      const userNameDisplay = document.getElementById('user-name-display');
-
-      if (user) {
-        userInfo.classList.remove('hidden');
-        loginBtn.classList.add('hidden');
-        userAvatarBtn.textContent = user.name ? user.name.charAt(0).toUpperCase() : 'U';
-        userNameDisplay.textContent = user.name || user.email;
-      } else {
-        userInfo.classList.add('hidden');
-        loginBtn.classList.remove('hidden');
-      }
-    }
-
-    function toggleUserMenu() {
-      const dropdown = document.getElementById('user-dropdown');
-      dropdown.classList.toggle('show');
-    }
-
-    function handleLogout() {
-      localStorage.removeItem('currentUser');
-      localStorage.removeItem('authToken');
-      checkUserStatus();
-      window.location.reload();
-    }
-
-    // Close dropdown when clicking outside
-    document.addEventListener('click', function(event) {
-      const dropdown = document.getElementById('user-dropdown');
-      const userAvatarBtn = document.getElementById('user-avatar-btn');
-      
-      if (!userAvatarBtn.contains(event.target) && !dropdown.contains(event.target)) {
-        dropdown.classList.remove('show');
-      }
-    });
-
-    // Check user status on page load
-    window.onload = function() {
-      checkUserStatus();
-    };
-
-    function handleLogout() {
-      localStorage.removeItem('currentUser');
-      localStorage.removeItem('authToken');
-      checkUserStatus();
-      window.location.reload();
-    }
-
-    // Close dropdown when clicking outside
-    document.addEventListener('click', function(event) {
-      const dropdown = document.getElementById('user-dropdown');
-      const userAvatarBtn = document.getElementById('user-avatar-btn');
-      
-      if (!userAvatarBtn.contains(event.target) && !dropdown.contains(event.target)) {
-        dropdown.classList.remove('show');
-      }
-    });
-
-    // Check user status on page load
-    window.onload = function() {
-      checkUserStatus();
-    };
-  </script>
-  <script src="../js/header-template.js"></script>
-  <script src="../js/footer-template.js"></script>
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "Canada's NPN System: A Gold Standard in Supplement Safety",
-      "description": "Learn why Camega products are proudly NPN-certified — and how Canada's health regulations protect you.",
-      "image": "https://camega.ca/assets/logo.jpg",
-      "author": {
-        "@type": "Organization",
-        "name": "Camega"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Camega",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://camega.ca/assets/logo.jpg"
-        }
-      },
-      "datePublished": "2025-05-13",
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "https://camega.ca/articles/canada-npn-standard.html"
-      }
-    }
   </script>
 </head>
 <body>
