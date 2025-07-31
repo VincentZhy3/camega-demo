@@ -5,8 +5,15 @@ class UserAuthManager {
     }
 
     init() {
-        // Initialize Firebase if available
+        // Initialize Firebase if not already initialized
         if (typeof firebase !== 'undefined' && firebase.auth) {
+            // Check if Firebase is already initialized
+            if (!firebase.apps.length) {
+                // Initialize Firebase with config
+                if (typeof firebaseConfig !== 'undefined') {
+                    firebase.initializeApp(firebaseConfig);
+                }
+            }
             this.auth = firebase.auth();
             this.setupAuthListener();
         }

@@ -5,48 +5,66 @@ class HeaderTemplate {
     }
 
     init() {
-        this.setupHeader();
-        this.setupNavigation();
-    }
-
-    setupHeader() {
-        // Add Firebase SDKs if not already present
         this.addFirebaseSDKs();
-        
-        // Add user auth script
         this.addUserAuthScript();
+        this.setupToggleNav();
     }
 
     addFirebaseSDKs() {
-        if (!document.querySelector('script[src*="firebase-app-compat"]')) {
-            const firebaseApp = document.createElement('script');
-            firebaseApp.src = 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js';
-            document.head.appendChild(firebaseApp);
+        // Check if Firebase SDKs are already loaded
+        if (document.querySelector('script[src*="firebase-app-compat.js"]')) {
+            return;
         }
-        
-        if (!document.querySelector('script[src*="firebase-auth-compat"]')) {
-            const firebaseAuth = document.createElement('script');
-            firebaseAuth.src = 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js';
-            document.head.appendChild(firebaseAuth);
-        }
-        
-        if (!document.querySelector('script[src="config.js"]')) {
-            const config = document.createElement('script');
-            config.src = 'config.js';
-            document.head.appendChild(config);
+
+        // Add Firebase SDKs
+        const firebaseAppScript = document.createElement('script');
+        firebaseAppScript.src = 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js';
+        document.head.appendChild(firebaseAppScript);
+
+        const firebaseAuthScript = document.createElement('script');
+        firebaseAuthScript.src = 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js';
+        document.head.appendChild(firebaseAuthScript);
+
+        // Add config.js
+        const configScript = document.createElement('script');
+        configScript.src = this.getConfigPath();
+        document.head.appendChild(configScript);
+    }
+
+    getConfigPath() {
+        // Determine the correct path to config.js based on current page
+        const path = window.location.pathname;
+        if (path.includes('/articles/')) {
+            return '../config.js';
+        } else {
+            return 'config.js';
         }
     }
 
     addUserAuthScript() {
-        if (!document.querySelector('script[src="js/user-auth.js"]')) {
-            const userAuth = document.createElement('script');
-            userAuth.src = 'js/user-auth.js';
-            document.head.appendChild(userAuth);
+        // Check if user-auth.js is already loaded
+        if (document.querySelector('script[src*="user-auth.js"]')) {
+            return;
+        }
+
+        // Add user-auth.js
+        const userAuthScript = document.createElement('script');
+        userAuthScript.src = this.getUserAuthPath();
+        document.head.appendChild(userAuthScript);
+    }
+
+    getUserAuthPath() {
+        // Determine the correct path to user-auth.js based on current page
+        const path = window.location.pathname;
+        if (path.includes('/articles/')) {
+            return '../js/user-auth.js';
+        } else {
+            return 'js/user-auth.js';
         }
     }
 
-    setupNavigation() {
-        // Add navigation toggle functionality
+    setupToggleNav() {
+        // Setup global toggleNav function
         window.toggleNav = function() {
             const nav = document.getElementById('main-nav');
             if (nav) {

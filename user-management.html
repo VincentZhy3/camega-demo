@@ -94,12 +94,9 @@
         </div>
     </div>
 
+    <script src="js/user-auth.js"></script>
     <script>
-        // Firebase configuration is loaded from config.js
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        const auth = firebase.auth();
-
+        // Use the global user authentication system
         let currentUser = null;
 
         function switchTab(tab) {
@@ -149,7 +146,7 @@
             setLoading('login-btn', true);
 
             try {
-                const userCredential = await auth.signInWithEmailAndPassword(email, password);
+                const userCredential = await firebase.auth().signInWithEmailAndPassword(email, password);
                 currentUser = userCredential.user;
                 showUserDashboard();
                 showMessage('login', 'Login successful!');
@@ -196,7 +193,7 @@
             setLoading('register-btn', true);
 
             try {
-                const userCredential = await auth.createUserWithEmailAndPassword(email, password);
+                const userCredential = await firebase.auth().createUserWithEmailAndPassword(email, password);
                 await userCredential.user.updateProfile({
                     displayName: name
                 });
@@ -229,7 +226,7 @@
         async function signInWithGoogle() {
             const provider = new firebase.auth.GoogleAuthProvider();
             try {
-                const result = await auth.signInWithPopup(provider);
+                const result = await firebase.auth().signInWithPopup(provider);
                 currentUser = result.user;
                 showUserDashboard();
                 showMessage('login', 'Login successful!');
@@ -246,7 +243,7 @@
                 localStorage.removeItem('authToken');
                 
                 // Sign out from Firebase
-                await auth.signOut();
+                await firebase.auth().signOut();
                 currentUser = null;
                 
                 // Show auth container
