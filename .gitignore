@@ -16,4 +16,7 @@ build/
 
 # OS files
 .DS_Store
-Thumbs.db 
+Thumbs.db
+
+# Firebase Configuration - Keep API keys secure
+# config.js  # 临时注释掉，让 config.js 被提交 
