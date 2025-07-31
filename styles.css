@@ -2117,6 +2117,9 @@ footer::before {
         font-size: 13px;
         padding: 8px 12px;
         box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     
     .login-btn a {
