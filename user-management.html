@@ -106,11 +106,11 @@
                 firebase.auth().onAuthStateChanged((user) => {
                     if (user) {
                         // User is signed in with Firebase
-                        const userInfo = {
-                            name: user.displayName || user.email.split('@')[0],
-                            email: user.email,
-                            uid: user.uid
-                        };
+                                        const userInfo = {
+                    name: user.displayName || user.name || user.email.split('@')[0],
+                    email: user.email,
+                    uid: user.uid
+                };
                         localStorage.setItem('currentUser', JSON.stringify(userInfo));
                         currentUser = userInfo;
                         showUserDashboard();
@@ -185,7 +185,7 @@
                 
                 // Save user info to localStorage
                 const userInfo = {
-                    name: currentUser.displayName || currentUser.email.split('@')[0],
+                    name: currentUser.displayName || currentUser.name || currentUser.email.split('@')[0],
                     email: currentUser.email,
                     uid: currentUser.uid
                 };
@@ -245,7 +245,7 @@
                 
                 // Save user info to localStorage
                 const userInfo = {
-                    name: currentUser.displayName || currentUser.email.split('@')[0],
+                    name: currentUser.displayName || currentUser.name || currentUser.email.split('@')[0],
                     email: currentUser.email,
                     uid: currentUser.uid
                 };
@@ -283,7 +283,7 @@
                 
                 // Save user info to localStorage
                 const userInfo = {
-                    name: currentUser.displayName || currentUser.email.split('@')[0],
+                    name: currentUser.displayName || currentUser.name || currentUser.email.split('@')[0],
                     email: currentUser.email,
                     uid: currentUser.uid
                 };
@@ -331,7 +331,7 @@
             document.getElementById('user-dashboard').classList.remove('hidden');
             
             if (currentUser) {
-                const displayName = currentUser.displayName || currentUser.email.split('@')[0];
+                const displayName = currentUser.displayName || currentUser.name || currentUser.email.split('@')[0];
                 const email = currentUser.email;
                 const avatar = displayName.charAt(0).toUpperCase();
                 

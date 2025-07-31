@@ -30,7 +30,7 @@ class UserAuthManager {
             if (user) {
                 // User is signed in
                 const userInfo = {
-                    name: user.displayName || user.email.split('@')[0],
+                    name: user.displayName || user.name || user.email.split('@')[0],
                     email: user.email,
                     uid: user.uid
                 };
