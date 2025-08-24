@@ -87,6 +87,40 @@ class HeaderTemplate {
                 }
             }
         };
+
+        // Setup header placeholder
+        this.setupHeaderPlaceholder();
+    }
+
+    setupHeaderPlaceholder() {
+        const headerPlaceholder = document.getElementById('header-placeholder');
+        if (headerPlaceholder) {
+            headerPlaceholder.innerHTML = `
+                <header>
+                    <h1><a href="index.html"><img src="assets/logo.png" alt="Camega Logo"></a></h1>
+                    <button class="nav-toggle" onclick="toggleNav()">☰</button>
+                    <nav id="main-nav">
+                        <a href="products.html">Products</a>
+                        <a href="index.html#contact">Contact</a>
+                        <a href="articles.html">Articles</a>
+                    </nav>
+                    <div class="user-section">
+                        <div id="user-info" class="header-user-info hidden">
+                            <span id="user-name-display"></span>
+                            <button class="user-avatar-btn" onclick="toggleUserMenu()" id="user-avatar-btn">U</button>
+                            <div class="user-dropdown" id="user-dropdown">
+                                <a href="user-management.html">User Center</a>
+                                <a href="#" onclick="handleLogout()">Logout</a>
+                            </div>
+                        </div>
+                        <div id="auth-buttons" class="header-auth-buttons">
+                            <button onclick="showLoginModal()" class="login-btn">Login</button>
+                            <button onclick="showSignupModal()" class="signup-btn">Sign Up</button>
+                        </div>
+                    </div>
+                </header>
+            `;
+        }
     }
 }
 

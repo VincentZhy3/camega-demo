@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Detail - Camega Health</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .product-detail-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .breadcrumb {
+            margin-bottom: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .breadcrumb a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .product-main {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .product-gallery {
+            position: relative;
+        }
+
+        .main-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 15px;
+        }
+
+        .thumbnail-images {
+            display: flex;
+            gap: 10px;
+        }
+
+        .thumbnail {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+
+        .thumbnail.active {
+            border-color: #4CAF50;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-category {
+            color: #4CAF50;
+            font-size: 14px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .product-title {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .stars {
+            color: #ffc107;
+            font-size: 18px;
+        }
+
+        .rating-text {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .product-price {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #2c5530;
+            margin-bottom: 20px;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 1.2rem;
+            margin-left: 10px;
+        }
+
+        .discount-badge {
+            background: #ff5722;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        .product-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .product-options {
+            margin-bottom: 25px;
+        }
+
+        .option-group {
+            margin-bottom: 20px;
+        }
+
+        .option-label {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .quantity-btn {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #ddd;
+            background: white;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .quantity-input {
+            width: 60px;
+            height: 40px;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .btn-primary {
+            background: #4CAF50;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            flex: 2;
+            transition: background 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background: #45a049;
+        }
+
+        .btn-secondary {
+            background: #2196F3;
+            color: white;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            flex: 1;
+            transition: background 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: #1976D2;
+        }
+
+        .product-features {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .features-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .features-list li {
+            padding: 8px 0;
+            color: #333;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .features-list li:before {
+            content: "✓";
+            color: #4CAF50;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .product-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .detail-section {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .detail-section h3 {
+            color: #2c5530;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .ingredients-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .ingredients-list li {
+            padding: 5px 0;
+            color: #666;
+            border-bottom: 1px solid #eee;
+        }
+
+        .nutrition-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .nutrition-table th,
+        .nutrition-table td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .nutrition-table th {
+            background: #f5f5f5;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .reviews-section {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .review-item {
+            border-bottom: 1px solid #eee;
+            padding: 20px 0;
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .reviewer-name {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .review-date {
+            color: #999;
+            font-size: 14px;
+        }
+
+        .review-rating {
+            color: #ffc107;
+            margin-bottom: 10px;
+        }
+
+        .review-text {
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .stock-status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .in-stock {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        .out-of-stock {
+            color: #f44336;
+            font-weight: bold;
+        }
+
+        .stock-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .stock-indicator.in-stock {
+            background: #4CAF50;
+        }
+
+        .stock-indicator.out-of-stock {
+            background: #f44336;
+        }
+
+        @media (max-width: 768px) {
+            .product-main {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .product-details {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            .product-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Template -->
+    <div id="header-placeholder"></div>
+
+    <div class="product-detail-container">
+        <div class="breadcrumb">
+            <a href="index.html">Home</a> > 
+            <a href="products.html">Products</a> > 
+            <span id="product-name-breadcrumb">Product Name</span>
+        </div>
+
+        <div class="product-main">
+            <div class="product-gallery">
+                <img id="main-product-image" src="assets/camega-omega.jpg" alt="Product" class="main-image">
+                <div class="thumbnail-images">
+                    <img src="assets/camega-omega.jpg" alt="Product" class="thumbnail active">
+                    <img src="assets/product1.png" alt="Product" class="thumbnail">
+                    <img src="assets/product.jpg" alt="Product" class="thumbnail">
+                </div>
+            </div>
+
+            <div class="product-info">
+                <div class="product-category" id="product-category">Omega-3</div>
+                <h1 class="product-title" id="product-title">Camega Omega-3 Deep Sea Fish Oil</h1>
+                
+                <div class="product-rating">
+                    <div class="stars">★★★★★</div>
+                    <span class="rating-text">4.8 (127 reviews)</span>
+                </div>
+
+                <div class="product-price">
+                    <span id="product-price">$29.99</span>
+                    <span class="original-price" id="original-price">$39.99</span>
+                    <span class="discount-badge">25% OFF</span>
+                </div>
+
+                <div class="stock-status">
+                    <div class="stock-indicator in-stock"></div>
+                    <span class="in-stock">In Stock - Ships within 24 hours</span>
+                </div>
+
+                <p class="product-description" id="product-description">
+                    Premium quality Omega-3 fish oil supplement sourced from deep sea fish. 
+                    Rich in EPA and DHA, essential fatty acids that support heart health, 
+                    brain function, and overall wellness. Each serving provides 1000mg of 
+                    pure fish oil with 300mg EPA and 200mg DHA.
+                </p>
+
+                <div class="product-options">
+                    <div class="option-group">
+                        <label class="option-label">Size:</label>
+                        <select id="size-selector">
+                            <option value="60-capsules">60 Capsules - $29.99</option>
+                            <option value="120-capsules">120 Capsules - $54.99</option>
+                            <option value="180-capsules">180 Capsules - $79.99</option>
+                        </select>
+                    </div>
+
+                    <div class="option-group">
+                        <label class="option-label">Quantity:</label>
+                        <div class="quantity-selector">
+                            <button class="quantity-btn" onclick="changeQuantity(-1)">-</button>
+                            <input type="number" class="quantity-input" id="quantity-input" value="1" min="1" max="10">
+                            <button class="quantity-btn" onclick="changeQuantity(1)">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn-primary" onclick="addToCart()">Add to Cart</button>
+                    <button class="btn-secondary" onclick="buyNow()">Buy Now</button>
+                </div>
+
+                <div class="product-features">
+                    <h3>Key Benefits</h3>
+                    <ul class="features-list">
+                        <li>Supports heart health and cardiovascular function</li>
+                        <li>Promotes brain health and cognitive function</li>
+                        <li>Reduces inflammation and joint discomfort</li>
+                        <li>Supports healthy skin and hair</li>
+                        <li>May improve mood and mental well-being</li>
+                        <li>High-quality, purified fish oil</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-details">
+            <div class="detail-section">
+                <h3>Ingredients</h3>
+                <ul class="ingredients-list" id="ingredients-list">
+                    <li>Fish Oil (from Anchovy, Sardine, Mackerel) - 1000mg</li>
+                    <li>EPA (Eicosapentaenoic Acid) - 300mg</li>
+                    <li>DHA (Docosahexaenoic Acid) - 200mg</li>
+                    <li>Gelatin (Capsule)</li>
+                    <li>Glycerin</li>
+                    <li>Purified Water</li>
+                </ul>
+            </div>
+
+            <div class="detail-section">
+                <h3>Nutrition Facts</h3>
+                <table class="nutrition-table">
+                    <thead>
+                        <tr>
+                            <th>Nutrient</th>
+                            <th>Amount per Serving</th>
+                            <th>% Daily Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Total Fat</td>
+                            <td>1g</td>
+                            <td>2%</td>
+                        </tr>
+                        <tr>
+                            <td>Omega-3 Fatty Acids</td>
+                            <td>500mg</td>
+                            <td>**</td>
+                        </tr>
+                        <tr>
+                            <td>EPA</td>
+                            <td>300mg</td>
+                            <td>**</td>
+                        </tr>
+                        <tr>
+                            <td>DHA</td>
+                            <td>200mg</td>
+                            <td>**</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p style="font-size: 12px; color: #666; margin-top: 10px;">
+                    ** Daily Value not established
+                </p>
+            </div>
+        </div>
+
+        <div class="reviews-section">
+            <h3>Customer Reviews</h3>
+            <div class="review-item">
+                <div class="review-header">
+                    <span class="reviewer-name">Sarah M.</span>
+                    <span class="review-date">March 15, 2024</span>
+                </div>
+                <div class="review-rating">★★★★★</div>
+                <div class="review-text">
+                    "Excellent quality fish oil! I've been taking this for 3 months and I can feel the difference. 
+                    My joints feel better and my skin looks healthier. Highly recommend!"
+                </div>
+            </div>
+            <div class="review-item">
+                <div class="review-header">
+                    <span class="reviewer-name">Michael R.</span>
+                    <span class="review-date">March 10, 2024</span>
+                </div>
+                <div class="review-rating">★★★★★</div>
+                <div class="review-text">
+                    "Great product! No fishy aftertaste and the capsules are easy to swallow. 
+                    I've noticed improved focus and energy levels since starting this supplement."
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Template -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="js/header-template.js"></script>
+    <script src="js/footer-template.js"></script>
+    <script src="js/product-detail.js"></script>
+</body>
+</html>
