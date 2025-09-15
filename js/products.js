@@ -59,7 +59,7 @@ class ProductsManager {
                 category: 'mens-health',
                 price: 52.49,
                 originalPrice: 69.99,
-                image: 'assets/product.jpg',
+                image: 'assets/men-multinutrient.png',
                 description: 'Advanced male health, fertility, and prostate support formula with clinically proven ingredients for sperm quality and reproductive health.',
                 rating: 4.7,
                 reviews: 98,
