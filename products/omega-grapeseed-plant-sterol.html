@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Omega 3 + Grapeseed & Free Plant Sterol | Camega</title>
+  <meta name="description" content="A powerful synergistic formula for comprehensive heart and brain health support with cholesterol management. 60 capsules per bottle.">
+  <meta name="keywords" content="Omega-3, Grapeseed Extract, Plant Sterols, Cholesterol, Heart Health, Brain Health, Antioxidants, Camega">
+  <meta name="apple-mobile-web-app-title" content="Camega">
+  <meta name="application-name" content="Camega">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="icon" type="image/png" href="../assets/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/png" sizes="192x192" href="../assets/favicon/web-app-manifest-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="../assets/favicon/web-app-manifest-512x512.png">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="../assets/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="../assets/favicon/site.webmanifest" />
+  <script src="../js/header-template.js"></script>
+  <script src="../js/footer-template.js"></script>
+  <style>
+    .product-hero {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .product-hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+    .product-hero p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+    .product-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+    .product-image {
+      width: 100%;
+      max-width: 400px;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    .product-info h2 {
+      color: #2c5530;
+      margin-bottom: 20px;
+    }
+    .product-price {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #2c5530;
+      margin: 20px 0;
+    }
+    .original-price {
+      text-decoration: line-through;
+      color: #999;
+      font-size: 1.2rem;
+      margin-left: 10px;
+    }
+    .discount-badge {
+      background: #ff5722;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      margin-left: 10px;
+    }
+    .product-actions {
+      display: flex;
+      gap: 15px;
+      margin: 30px 0;
+    }
+    .btn-primary {
+      background: #4CAF50;
+      color: white;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      flex: 1;
+      transition: background 0.3s ease;
+    }
+    .btn-primary:hover {
+      background: #45a049;
+    }
+    .btn-secondary {
+      background: #2196F3;
+      color: white;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .btn-secondary:hover {
+      background: #1976D2;
+    }
+    .product-details {
+      grid-column: 1 / -1;
+      margin-top: 40px;
+    }
+    .ingredients-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin: 20px 0;
+    }
+    .ingredient-item {
+      background: #f8f9fa;
+      padding: 15px;
+      border-radius: 8px;
+      border-left: 4px solid #4CAF50;
+    }
+    .product-navigation {
+      text-align: center;
+      margin: 40px 0;
+    }
+    .btn-pill {
+      display: inline-block;
+      background: #4CAF50;
+      color: white;
+      padding: 12px 24px;
+      text-decoration: none;
+      border-radius: 25px;
+      margin: 0 10px;
+      transition: background 0.3s ease;
+    }
+    .btn-pill:hover {
+      background: #45a049;
+    }
+    .btn-pill.prev::before {
+      content: "← ";
+      margin-right: 5px;
+    }
+    .btn-pill.prev::after {
+      content: "" !important;
+    }
+    .btn-pill.next::after {
+      content: " →" !important;
+      margin-left: 5px;
+    }
+    .btn-pill.next::before {
+      content: "" !important;
+    }
+    @media (max-width: 768px) {
+      .product-content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .product-hero h1 {
+        font-size: 2rem;
+      }
+      .product-actions {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+    <header>
+    <h1><a href="../index.html"><img src="../assets/logo.png" alt="Camega Logo"></a></h1>
+    <button class="nav-toggle" onclick="toggleNav()">☰</button>
+    <nav id="main-nav">
+      <a href="../index.html#products">Products</a>
+      <a href="../index.html#contact">Contact</a>
+      <a href="../articles.html">Articles</a>
+    </nav>
+    <div class="user-section">
+      <div id="user-info" class="header-user-info hidden">
+        <span id="user-name-display"></span>
+        <button class="user-avatar-btn" onclick="toggleUserMenu()" id="user-avatar-btn">U</button>
+        <div class="user-dropdown" id="user-dropdown">
+          <a href="../user-management.html">User Center</a>
+          <a href="#" onclick="handleLogout()">Logout</a>
+        </div>
+      </div>
+      <div id="login-btn" class="login-btn">
+        <a href="../user-management.html">Login</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="product-hero">
+    <h1>Omega 3 + Grapeseed & Free Plant Sterol</h1>
+    <p>A Powerful Synergistic Formula for Heart and Brain Health</p>
+  </section>
+
+  <section class="product-content">
+    <div class="product-image-container">
+      <img src="../assets/camega-omega.jpg" alt="Omega 3 + Grapeseed & Free Plant Sterol" class="product-image">
+    </div>
+    
+    <div class="product-info">
+      <h2>Healthy Cholesterol Pro+</h2>
+      <p>In today's fast-paced lifestyle, issues such as high cholesterol, elevated triglycerides, and cardiovascular stress are becoming increasingly common. This premium formula is designed to provide comprehensive support for cardiovascular health, cholesterol balance, brain function, and antioxidant protection.</p>
+      
+      <div class="product-price">
+        CAD $59.99
+        <span class="original-price">$79.99</span>
+        <span class="discount-badge">25% OFF</span>
+      </div>
+      
+      <p><strong>60 Capsules per bottle</strong></p>
+      
+      <div class="product-actions">
+        <button class="btn-primary" onclick="addToCart('omega-grapeseed-plant-sterol')">Add to Cart</button>
+        <button class="btn-secondary" onclick="window.location.href='../order-demo.html'">Buy Now</button>
+      </div>
+      
+      <div class="product-features">
+        <h3>Key Benefits:</h3>
+        <ul>
+          <li>Comprehensive support for cholesterol management</li>
+          <li>Promotes healthy triglyceride levels</li>
+          <li>Defends against oxidative stress</li>
+          <li>Supports cognitive and thyroid function</li>
+          <li>Enhances nutrient absorption</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="product-details">
+      <h3>🔑 Key Ingredients</h3>
+      <div class="ingredients-list">
+        <div class="ingredient-item">
+          <h4>Omega-3 Fish Oil (EPA & DHA)</h4>
+          <p>Supports normal cardiovascular function and helps maintain healthy triglyceride levels</p>
+        </div>
+        <div class="ingredient-item">
+          <h4>Free Plant Sterols</h4>
+          <p>Clinically proven to help lower total and LDL ("bad") cholesterol</p>
+        </div>
+        <div class="ingredient-item">
+          <h4>Grapeseed Extract (85% OPCs)</h4>
+          <p>Rich in antioxidants to help combat oxidative stress and promote circulation</p>
+        </div>
+        <div class="ingredient-item">
+          <h4>Selenium (from Selenomethionine)</h4>
+          <p>Supports normal thyroid function and provides antioxidant defense</p>
+        </div>
+        <div class="ingredient-item">
+          <h4>Black Pepper Extract</h4>
+          <p>Enhances bioavailability of nutrients for maximum absorption</p>
+        </div>
+      </div>
+      
+      <h3>✅ Who Can Benefit?</h3>
+      <ul>
+        <li>Adults concerned about high cholesterol or cardiovascular risk</li>
+        <li>Individuals seeking natural support for heart and brain health</li>
+        <li>Those exposed to oxidative stress or poor circulation</li>
+        <li>People looking for a convenient, all-in-one wellness solution</li>
+      </ul>
+      
+      <div class="product-navigation">
+        <a href="ace-mark-omega3-braineye-pro.html" class="btn-pill next">Next Product</a>
+        <a href="../products.html" class="btn-pill">Back to Products</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <a href="../index.html#products">Products</a>
+        <a href="../index.html#contact">Contact</a>
+        <a href="../articles.html">Articles</a>
+      </div>
+      <div class="footer-section">
+        <h4>Follow Us</h4>
+        <a href="#" target="_blank">Facebook</a>
+        <a href="#" target="_blank">Twitter</a>
+        <a href="#" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2025 Camega. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    function addToCart(productId) {
+      console.log('Adding product to cart:', productId);
+      alert('Added to cart successfully!');
+    }
+  </script>
+</body>
+</html>

@@ -20,108 +20,53 @@ class ProductsManager {
         this.setupEventListeners();
     }
 
-    // Load sample products data
+    // Load real products data
     loadProducts() {
         this.products = [
             {
-                id: 'omega-3-fish-oil',
-                name: 'Camega Omega-3 Deep Sea Fish Oil',
-                category: 'omega-3',
-                price: 29.99,
-                originalPrice: 39.99,
+                id: 'omega-grapeseed-plant-sterol',
+                name: 'Omega 3 + Grapeseed & Free Plant Sterol',
+                category: 'heart-health',
+                price: 59.99,
+                originalPrice: 79.99,
                 image: 'assets/camega-omega.jpg',
-                description: 'Premium quality Omega-3 fish oil supplement with high EPA and DHA content.',
-                rating: 4.8,
-                reviews: 127,
-                inStock: true,
-                badge: 'BEST SELLER'
-            },
-            {
-                id: 'vitamin-d3',
-                name: 'Vitamin D3 2000 IU',
-                category: 'vitamins',
-                price: 19.99,
-                originalPrice: 24.99,
-                image: 'assets/product1.png',
-                description: 'High-potency Vitamin D3 supplement for bone health and immune support.',
-                rating: 4.6,
-                reviews: 89,
-                inStock: true,
-                badge: 'NEW'
-            },
-            {
-                id: 'coq10-supplement',
-                name: 'CoQ10 100mg',
-                category: 'antioxidants',
-                price: 34.99,
-                originalPrice: 44.99,
-                image: 'assets/product.jpg',
-                description: 'Coenzyme Q10 supplement for heart health and cellular energy production.',
-                rating: 4.7,
+                description: 'A powerful synergistic formula for comprehensive heart and brain health support with cholesterol management.',
+                rating: 4.9,
                 reviews: 156,
-                inStock: true
-            },
-            {
-                id: 'probiotic-blend',
-                name: 'Probiotic Blend 50 Billion CFU',
-                category: 'probiotics',
-                price: 39.99,
-                originalPrice: 49.99,
-                image: 'assets/product1.png',
-                description: 'Advanced probiotic formula with 50 billion live cultures for gut health.',
-                rating: 4.5,
-                reviews: 203,
-                inStock: true
-            },
-            {
-                id: 'magnesium-citrate',
-                name: 'Magnesium Citrate 400mg',
-                category: 'minerals',
-                price: 24.99,
-                originalPrice: 29.99,
-                image: 'assets/product.jpg',
-                description: 'Highly absorbable magnesium citrate for muscle relaxation and sleep support.',
-                rating: 4.4,
-                reviews: 78,
-                inStock: false,
-                badge: 'OUT OF STOCK'
-            },
-            {
-                id: 'vitamin-c-1000',
-                name: 'Vitamin C 1000mg',
-                category: 'vitamins',
-                price: 16.99,
-                originalPrice: 21.99,
-                image: 'assets/product1.png',
-                description: 'High-dose Vitamin C supplement for immune system support and antioxidant protection.',
-                rating: 4.3,
-                reviews: 145,
-                inStock: true
-            },
-            {
-                id: 'zinc-picolinate',
-                name: 'Zinc Picolinate 30mg',
-                category: 'minerals',
-                price: 18.99,
-                originalPrice: 23.99,
-                image: 'assets/product.jpg',
-                description: 'Chelated zinc supplement for immune function and skin health.',
-                rating: 4.6,
-                reviews: 92,
-                inStock: true
-            },
-            {
-                id: 'curcumin-turmeric',
-                name: 'Curcumin Turmeric Extract',
-                category: 'antioxidants',
-                price: 27.99,
-                originalPrice: 34.99,
-                image: 'assets/product1.png',
-                description: 'Bioavailable curcumin extract for inflammation support and joint health.',
-                rating: 4.7,
-                reviews: 167,
                 inStock: true,
-                badge: 'POPULAR'
+                badge: 'BEST SELLER',
+                capsules: 60,
+                ingredients: ['Omega-3 Fish Oil (EPA & DHA)', 'Free Plant Sterols', 'Grapeseed Extract (85% OPCs)', 'Selenium', 'Black Pepper Extract']
+            },
+            {
+                id: 'ace-mark-omega3-braineye-pro',
+                name: 'Ace Mark Omega-3 BrainEye Pro+',
+                category: 'brain-health',
+                price: 52.49,
+                originalPrice: 69.99,
+                image: 'assets/product1.png',
+                description: 'Advanced brain, eye, and cognitive support formula with Omega-3, BacoMind®, and Lutein & Zeaxanthin for all ages.',
+                rating: 4.8,
+                reviews: 134,
+                inStock: true,
+                badge: 'NEW',
+                capsules: 60,
+                ingredients: ['Omega-3 Fish Oil (DHA & EPA)', 'BacoMind® (Bacopa monnieri Extract)', 'Lutein & Zeaxanthin']
+            },
+            {
+                id: 'mens-multinutrient-pro',
+                name: 'Men\'s Multinutrient Pro+',
+                category: 'mens-health',
+                price: 52.49,
+                originalPrice: 69.99,
+                image: 'assets/product.jpg',
+                description: 'Advanced male health, fertility, and prostate support formula with clinically proven ingredients for sperm quality and reproductive health.',
+                rating: 4.7,
+                reviews: 98,
+                inStock: true,
+                badge: 'POPULAR',
+                capsules: 60,
+                ingredients: ['Arginine', 'L-Carnitine', 'Taurine', 'Zinc', 'Selenium', 'Vitamin C & E', 'Folate', 'Lycopene', 'Black Pepper Extract']
             }
         ];
 
@@ -253,7 +198,7 @@ class ProductsManager {
         const discount = product.originalPrice ? Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100) : 0;
         
         return `
-            <div class="product-card" onclick="window.location.href='product-detail.html?id=${product.id}'">
+            <div class="product-card" onclick="window.location.href='products/${product.id}.html'">
                 ${product.badge ? `<div class="product-badge">${product.badge}</div>` : ''}
                 <img src="${product.image}" alt="${product.name}" class="product-image">
                 <div class="product-info">
@@ -266,7 +211,7 @@ class ProductsManager {
                         ${discount > 0 ? `<span style="background: #ff5722; color: white; padding: 2px 6px; border-radius: 8px; font-size: 12px; margin-left: 8px;">${discount}% OFF</span>` : ''}
                     </div>
                     <div class="product-actions">
-                        <button class="btn-view" onclick="event.stopPropagation(); window.location.href='product-detail.html?id=${product.id}'">View Details</button>
+                        <button class="btn-view" onclick="event.stopPropagation(); window.location.href='products/${product.id}.html'">View Details</button>
                         <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('${product.id}')" ${!product.inStock ? 'disabled' : ''}>
                             ${product.inStock ? 'Add to Cart' : 'Out of Stock'}
                         </button>
@@ -279,6 +224,9 @@ class ProductsManager {
     // Get display name for category
     getCategoryDisplayName(category) {
         const categoryNames = {
+            'heart-health': 'Heart Health',
+            'brain-health': 'Brain Health',
+            'mens-health': 'Men\'s Health',
             'omega-3': 'Omega-3',
             'vitamins': 'Vitamins',
             'minerals': 'Minerals',

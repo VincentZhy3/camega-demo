@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ace Mark Omega-3 BrainEye Pro+ | Camega</title>
+  <meta name="description" content="Advanced brain, eye, and cognitive support formula with Omega-3, BacoMind®, and Lutein & Zeaxanthin for all ages. 60 capsules per bottle.">
+  <meta name="keywords" content="Omega-3, BacoMind, Bacopa, Lutein, Zeaxanthin, Brain Health, Eye Health, Cognitive Support, DHA, EPA, Camega">
+  <meta name="apple-mobile-web-app-title" content="Camega">
+  <meta name="application-name" content="Camega">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="icon" type="image/png" href="../assets/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/png" sizes="192x192" href="../assets/favicon/web-app-manifest-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="../assets/favicon/web-app-manifest-512x512.png">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="../assets/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="../assets/favicon/site.webmanifest" />
+  <script src="../js/header-template.js"></script>
+  <script src="../js/footer-template.js"></script>
+  <style>
+    .product-hero {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .product-hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+    .product-hero p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+    .product-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+    .product-image {
+      width: 100%;
+      max-width: 400px;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    .product-info h2 {
+      color: #2c5530;
+      margin-bottom: 20px;
+    }
+    .product-price {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #2c5530;
+      margin: 20px 0;
+    }
+    .original-price {
+      text-decoration: line-through;
+      color: #999;
+      font-size: 1.2rem;
+      margin-left: 10px;
+    }
+    .discount-badge {
+      background: #ff5722;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      margin-left: 10px;
+    }
+    .product-actions {
+      display: flex;
+      gap: 15px;
+      margin: 30px 0;
+    }
+    .btn-primary {
+      background: #4CAF50;
+      color: white;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      flex: 1;
+      transition: background 0.3s ease;
+    }
+    .btn-primary:hover {
+      background: #45a049;
+    }
+    .btn-secondary {
+      background: #2196F3;
+      color: white;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .btn-secondary:hover {
+      background: #1976D2;
+    }
+    .product-details {
+      grid-column: 1 / -1;
+      margin-top: 40px;
+    }
+    .ingredients-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin: 20px 0;
+    }
+    .ingredient-item {
+      background: #f8f9fa;
+      padding: 15px;
+      border-radius: 8px;
+      border-left: 4px solid #4CAF50;
+    }
+    .product-navigation {
+      text-align: center;
+      margin: 40px 0;
+    }
+    .btn-pill {
+      display: inline-block;
+      background: #4CAF50;
+      color: white;
+      padding: 12px 24px;
+      text-decoration: none;
+      border-radius: 25px;
+      margin: 0 10px;
+      transition: background 0.3s ease;
+    }
+    .btn-pill:hover {
+      background: #45a049;
+    }
+    .btn-pill.prev::before {
+      content: "← ";
+      margin-right: 5px;
+    }
+    .btn-pill.prev::after {
+      content: "" !important;
+    }
+    .btn-pill.next::after {
+      content: " →" !important;
+      margin-left: 5px;
+    }
+    .btn-pill.next::before {
+      content: "" !important;
+    }
+    @media (max-width: 768px) {
+      .product-content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .product-hero h1 {
+        font-size: 2rem;
+      }
+      .product-actions {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+    <header>
+    <h1><a href="../index.html"><img src="../assets/logo.png" alt="Camega Logo"></a></h1>
+    <button class="nav-toggle" onclick="toggleNav()">☰</button>
+    <nav id="main-nav">
+      <a href="../index.html#products">Products</a>
+      <a href="../index.html#contact">Contact</a>
+      <a href="../articles.html">Articles</a>
+    </nav>
+    <div class="user-section">
+      <div id="user-info" class="header-user-info hidden">
+        <span id="user-name-display"></span>
+        <button class="user-avatar-btn" onclick="toggleUserMenu()" id="user-avatar-btn">U</button>
+        <div class="user-dropdown" id="user-dropdown">
+          <a href="../user-management.html">User Center</a>
+          <a href="#" onclick="handleLogout()">Logout</a>
+        </div>
+      </div>
+      <div id="login-btn" class="login-btn">
+        <a href="../user-management.html">Login</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="product-hero">
+    <h1>Ace Mark Omega-3 BrainEye Pro+</h1>
+    <p>Advanced Brain, Eye, and Cognitive Support for All Ages</p>
+  </section>
+
+  <section class="product-content">
+    <div class="product-image-container">
+      <img src="../assets/product1.png" alt="Ace Mark Omega-3 BrainEye Pro+" class="product-image">
+    </div>
+    
+    <div class="product-info">
+      <h2>Brain & Eye Health Formula</h2>
+      <p>In today's demanding world—whether it's children preparing for exams, students striving for academic excellence, or adults seeking sharper focus in learning and work—nutrition plays a critical role in cognitive performance. This advanced formula combines premium omega-3 fish oil with clinically researched ingredients BacoMind® and Lutein & Zeaxanthin.</p>
+      
+      <div class="product-price">
+        CAD $52.49
+        <span class="original-price">$69.99</span>
+        <span class="discount-badge">25% OFF</span>
+      </div>
+      
+      <p><strong>60 Capsules per bottle</strong></p>
+      
+      <div class="product-actions">
+        <button class="btn-primary" onclick="addToCart('ace-mark-omega3-braineye-pro')">Add to Cart</button>
+        <button class="btn-secondary" onclick="window.location.href='../order-demo.html'">Buy Now</button>
+      </div>
+      
+      <div class="product-features">
+        <h3>Key Benefits:</h3>
+        <ul>
+          <li>Supports exam preparation and academic performance</li>
+          <li>Enhances focus, attention span, and learning capacity</li>
+          <li>Protects eyesight against digital and environmental stress</li>
+          <li>Promotes lifelong brain and cognitive health</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="product-details">
+      <h3>🔑 Key Ingredients</h3>
+      <div class="ingredients-list">
+        <div class="ingredient-item">
+          <h4>Omega-3 Fish Oil (DHA & EPA)</h4>
+          <p>Provides 50% DHA and 10% EPA—essential fatty acids critical for brain cell structure and signaling</p>
+        </div>
+        <div class="ingredient-item">
+          <h4>BacoMind® (Standardized Bacopa monnieri Extract)</h4>
+          <p>Contains 43.5% bacosides, clinically studied for cognitive enhancement and memory retention</p>
+        </div>
+        <div class="ingredient-item">
+          <h4>Lutein (5 mg) and Zeaxanthin (1 mg)</h4>
+          <p>Natural carotenoids that concentrate in the retina and macula, supporting long-term eye health</p>
+        </div>
+      </div>
+      
+      <h3>✅ Who Can Benefit?</h3>
+      <ul>
+        <li>Students preparing for exams or facing heavy academic loads</li>
+        <li>Children who need extra support for memory, focus, and healthy eye development</li>
+        <li>Adults seeking improved concentration, sharper learning ability, and protection from eye fatigue</li>
+        <li>Professionals under mental stress who want to maintain brain performance and productivity</li>
+      </ul>
+      
+      <div class="product-navigation">
+        <a href="omega-grapeseed-plant-sterol.html" class="btn-pill prev">Previous Product</a>
+        <a href="mens-multinutrient-pro.html" class="btn-pill next">Next Product</a>
+        <a href="../products.html" class="btn-pill">Back to Products</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <a href="../index.html#products">Products</a>
+        <a href="../index.html#contact">Contact</a>
+        <a href="../articles.html">Articles</a>
+      </div>
+      <div class="footer-section">
+        <h4>Follow Us</h4>
+        <a href="#" target="_blank">Facebook</a>
+        <a href="#" target="_blank">Twitter</a>
+        <a href="#" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2025 Camega. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    function addToCart(productId) {
+      console.log('Adding product to cart:', productId);
+      alert('Added to cart successfully!');
+    }
+  </script>
+</body>
+</html>
