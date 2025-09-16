@@ -15,25 +15,31 @@
         .products-header {
             text-align: center;
             margin-bottom: 40px;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px;
         }
 
         .products-header h1 {
-            color: #2c5530;
+            color: white;
             font-size: 2.5rem;
             margin-bottom: 10px;
+            font-weight: bold;
         }
 
         .products-header p {
-            color: #666;
+            color: rgba(255,255,255,0.9);
             font-size: 1.1rem;
         }
 
         .filters-section {
             background: white;
-            border-radius: 10px;
-            padding: 20px;
+            border-radius: 15px;
+            padding: 25px;
             margin-bottom: 30px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 1px solid rgba(102, 126, 234, 0.1);
         }
 
         .filters-row {
@@ -81,11 +87,13 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
+            border: 1px solid rgba(102, 126, 234, 0.1);
         }
 
         .product-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
+            border-color: rgba(102, 126, 234, 0.3);
         }
 
         .product-image {
@@ -139,34 +147,38 @@
         }
 
         .btn-view {
-            background: #4CAF50;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             padding: 10px 20px;
             border: none;
-            border-radius: 5px;
+            border-radius: 25px;
             cursor: pointer;
             font-size: 14px;
             flex: 1;
-            transition: background 0.3s ease;
+            transition: all 0.3s ease;
+            font-weight: 500;
         }
 
         .btn-view:hover {
-            background: #45a049;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
         }
 
         .btn-add-cart {
-            background: #2196F3;
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
             color: white;
             padding: 10px 15px;
             border: none;
-            border-radius: 5px;
+            border-radius: 25px;
             cursor: pointer;
             font-size: 14px;
-            transition: background 0.3s ease;
+            transition: all 0.3s ease;
+            font-weight: 500;
         }
 
         .btn-add-cart:hover {
-            background: #1976D2;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
         }
 
         .product-badge {
@@ -194,23 +206,27 @@
 
         .pagination button {
             padding: 10px 15px;
-            border: 1px solid #ddd;
+            border: 1px solid rgba(102, 126, 234, 0.2);
             background: white;
             cursor: pointer;
-            border-radius: 5px;
+            border-radius: 25px;
             transition: all 0.3s ease;
+            color: #667eea;
+            font-weight: 500;
         }
 
         .pagination button:hover {
-            background: #4CAF50;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            border-color: #4CAF50;
+            border-color: #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
         }
 
         .pagination button.active {
-            background: #4CAF50;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            border-color: #4CAF50;
+            border-color: #667eea;
         }
 
         .no-products {
@@ -237,8 +253,28 @@
     </style>
 </head>
 <body>
-    <!-- Header Template -->
-    <div id="header-placeholder"></div>
+  <header>
+    <h1><a href="index.html"><img src="assets/logo.png" alt="Camega Logo"></a></h1>
+    <button class="nav-toggle" onclick="toggleNav()">☰</button>
+    <nav id="main-nav">
+      <a href="products.html" class="active">Products</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="articles.html">Articles</a>
+    </nav>
+    <div class="user-section">
+      <div id="user-info" class="header-user-info hidden">
+        <span id="user-name-display"></span>
+        <button class="user-avatar-btn" onclick="toggleUserMenu()" id="user-avatar-btn">U</button>
+        <div class="user-dropdown" id="user-dropdown">
+          <a href="user-management.html">User Center</a>
+          <a href="#" onclick="handleLogout()">Logout</a>
+        </div>
+      </div>
+      <div id="login-btn" class="login-btn">
+        <a href="user-management.html">Login</a>
+      </div>
+    </div>
+  </header>
 
     <div class="products-container">
         <div class="products-header">
@@ -295,12 +331,27 @@
         </div>
     </div>
 
-    <!-- Footer Template -->
-    <div id="footer-placeholder"></div>
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <a href="products.html">Products</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="articles.html">Articles</a>
+      </div>
+      <div class="footer-section">
+        <h4>Follow Us</h4>
+        <a href="#" target="_blank">Facebook</a>
+        <a href="#" target="_blank">Twitter</a>
+        <a href="#" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2025 Camega. All rights reserved.
+    </div>
+  </footer>
 
     <!-- Scripts -->
-    <script src="js/header-template.js"></script>
-    <script src="js/footer-template.js"></script>
     <script src="js/products.js"></script>
 </body>
 </html>
