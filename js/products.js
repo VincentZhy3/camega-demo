@@ -44,7 +44,7 @@ class ProductsManager {
                 category: 'brain-health',
                 price: 52.49,
                 originalPrice: 69.99,
-                image: 'assets/product1.png',
+                image: 'assets/ace-mark.png',
                 description: 'Advanced brain, eye, and cognitive support formula with Omega-3, BacoMind®, and Lutein & Zeaxanthin for all ages.',
                 rating: 4.8,
                 reviews: 134,
