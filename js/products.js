@@ -29,7 +29,7 @@ class ProductsManager {
                 category: 'heart-health',
                 price: 59.99,
                 originalPrice: 79.99,
-                image: 'assets/camega-omega.jpg',
+                image: 'assets/omega3-sterol.png',
                 description: 'A powerful synergistic formula for comprehensive heart and brain health support with cholesterol management.',
                 rating: 4.9,
                 reviews: 156,
