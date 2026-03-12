@@ -1,40 +1,58 @@
-// Footer Template
 class FooterTemplate {
-    constructor() {
-        this.init();
-    }
+  constructor() {
+    this.basePath = this.getBasePath();
+    this.init();
+  }
 
-    init() {
-        this.addFooterLogo();
+  getBasePath() {
+    const path = window.location.pathname;
+    if (path.includes('/articles/') || path.includes('/products/')) {
+      return '../';
     }
+    return '';
+  }
 
-    addFooterLogo() {
-        // 检查是否已经有footer logo
-        const existingLogo = document.querySelector('.footer-logo');
-        if (existingLogo) return;
+  init() {
+    this.injectFooter();
+  }
 
-        // 找到footer content
-        const footerContent = document.querySelector('.footer-content');
-        if (footerContent) {
-            // 在footer content的开头插入logo
-            const logoDiv = document.createElement('div');
-            logoDiv.className = 'footer-logo';
-            logoDiv.innerHTML = `
-                <img src="${window.location.pathname.includes('/articles/') || window.location.pathname.includes('/products/') ? '../assets/logo-white.png' : 'assets/logo-white.png'}" alt="Camega Logo" style="height: 50px; margin-bottom: 15px;">
-                <p style="color: rgba(255,255,255,0.8); font-size: 14px; margin: 0;">
-                    Your trusted partner in health and wellness
-                </p>
-            `;
-            footerContent.insertBefore(logoDiv, footerContent.firstChild);
-        }
-    }
+  injectFooter() {
+    const placeholder = document.getElementById('footer-placeholder');
+    if (!placeholder) return;
+
+    const bp = this.basePath;
+    const year = new Date().getFullYear();
+
+    placeholder.outerHTML = `
+    <footer>
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="${bp}assets/logo-white.png" alt="Camega" style="height:50px;margin-bottom:15px;">
+          <p>Your trusted partner in health and wellness</p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <a href="${bp}products.html">Products</a>
+          <a href="${bp}index.html#contact">Contact</a>
+          <a href="${bp}articles.html">Articles</a>
+        </div>
+        <div class="footer-section">
+          <h4>Follow Us</h4>
+          <a href="#" target="_blank">Facebook</a>
+          <a href="#" target="_blank">Twitter</a>
+          <a href="#" target="_blank">LinkedIn</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; ${year} Camega. All rights reserved.
+      </div>
+    </footer>
+    <a class="back-to-top" onclick="scrollToTop()">\u2191</a>`;
+  }
 }
 
-// Initialize footer template
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-        window.footerTemplate = new FooterTemplate();
-    });
+  document.addEventListener('DOMContentLoaded', () => { window.footerTemplate = new FooterTemplate(); });
 } else {
-    window.footerTemplate = new FooterTemplate();
-} 
+  window.footerTemplate = new FooterTemplate();
+}

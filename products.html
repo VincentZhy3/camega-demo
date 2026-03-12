@@ -1,357 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products - Camega Health</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        .products-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .products-header {
-            text-align: center;
-            margin-bottom: 40px;
-            padding: 60px 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border-radius: 15px;
-        }
-
-        .products-header h1 {
-            color: white;
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-
-        .products-header p {
-            color: rgba(255,255,255,0.9);
-            font-size: 1.1rem;
-        }
-
-        .filters-section {
-            background: white;
-            border-radius: 15px;
-            padding: 25px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            border: 1px solid rgba(102, 126, 234, 0.1);
-        }
-
-        .filters-row {
-            display: flex;
-            gap: 20px;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .filter-group {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-        }
-
-        .filter-group label {
-            font-weight: bold;
-            color: #333;
-            font-size: 14px;
-        }
-
-        .filter-group select, .filter-group input {
-            padding: 8px 12px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 14px;
-        }
-
-        .search-box {
-            flex: 1;
-            min-width: 200px;
-        }
-
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
-        }
-
-        .product-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-            border: 1px solid rgba(102, 126, 234, 0.1);
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
-            border-color: rgba(102, 126, 234, 0.3);
-        }
-
-        .product-image {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-        }
-
-        .product-info {
-            padding: 20px;
-        }
-
-        .product-category {
-            color: #4CAF50;
-            font-size: 12px;
-            font-weight: bold;
-            text-transform: uppercase;
-            margin-bottom: 8px;
-        }
-
-        .product-title {
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 10px;
-            line-height: 1.3;
-        }
-
-        .product-description {
-            color: #666;
-            font-size: 14px;
-            line-height: 1.5;
-            margin-bottom: 15px;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-
-        .product-price {
-            font-size: 1.4rem;
-            font-weight: bold;
-            color: #2c5530;
-            margin-bottom: 15px;
-        }
-
-        .product-actions {
-            display: flex;
-            gap: 10px;
-        }
-
-        .btn-view {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            font-size: 14px;
-            flex: 1;
-            transition: all 0.3s ease;
-            font-weight: 500;
-        }
-
-        .btn-view:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
-        }
-
-        .btn-add-cart {
-            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            font-size: 14px;
-            transition: all 0.3s ease;
-            font-weight: 500;
-        }
-
-        .btn-add-cart:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
-        }
-
-        .product-badge {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: #ff5722;
-            color: white;
-            padding: 4px 8px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: bold;
-        }
-
-        .product-card {
-            position: relative;
-        }
-
-        .pagination {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 40px;
-        }
-
-        .pagination button {
-            padding: 10px 15px;
-            border: 1px solid rgba(102, 126, 234, 0.2);
-            background: white;
-            cursor: pointer;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            color: #667eea;
-            font-weight: 500;
-        }
-
-        .pagination button:hover {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border-color: #667eea;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
-        }
-
-        .pagination button.active {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border-color: #667eea;
-        }
-
-        .no-products {
-            text-align: center;
-            padding: 40px;
-            color: #666;
-        }
-
-        @media (max-width: 768px) {
-            .products-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-                gap: 20px;
-            }
-
-            .filters-row {
-                flex-direction: column;
-                align-items: stretch;
-            }
-
-            .search-box {
-                min-width: auto;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products | Camega Health</title>
+  <meta name="description" content="Explore Camega's premium health supplements — Omega-3, BrainEye Pro, Men's Multinutrient and more.">
+  <meta property="og:title" content="Our Products | Camega Health">
+  <meta property="og:description" content="Premium NPN-certified health supplements from Camega.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://camega.ca/products.html">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon/favicon.svg">
+  <link rel="icon" type="image/png" href="assets/favicon/favicon-96x96.png" sizes="96x96">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+  <link rel="manifest" href="assets/favicon/site.webmanifest">
+  <script src="js/header-template.js"></script>
+  <script src="js/footer-template.js"></script>
 </head>
 <body>
-  <header>
-    <h1><a href="index.html"><img src="assets/logo.png" alt="Camega Logo"></a></h1>
-    <button class="nav-toggle" onclick="toggleNav()">☰</button>
-    <nav id="main-nav">
-      <a href="products.html" class="active">Products</a>
-      <a href="index.html#contact">Contact</a>
-      <a href="articles.html">Articles</a>
-    </nav>
-    <div class="user-section">
-      <div id="user-info" class="header-user-info hidden">
-        <span id="user-name-display"></span>
-        <button class="user-avatar-btn" onclick="toggleUserMenu()" id="user-avatar-btn">U</button>
-        <div class="user-dropdown" id="user-dropdown">
-          <a href="user-management.html">User Center</a>
-          <a href="#" onclick="handleLogout()">Logout</a>
-        </div>
-      </div>
-      <div id="login-btn" class="login-btn">
-        <a href="user-management.html">Login</a>
-      </div>
-    </div>
-  </header>
 
-    <div class="products-container">
-        <div class="products-header">
-            <h1>Our Premium Supplements</h1>
-            <p>Discover our carefully curated selection of high-quality health supplements</p>
-        </div>
+  <div id="header-placeholder"></div>
 
-        <div class="filters-section">
-            <div class="filters-row">
-                <div class="search-box">
-                    <div class="filter-group">
-                        <label>Search Products</label>
-                        <input type="text" id="search-input" placeholder="Search by name, category, or benefits...">
-                    </div>
-                </div>
-                <div class="filter-group">
-                    <label>Category</label>
-                    <select id="category-filter">
-                        <option value="">All Categories</option>
-                        <option value="heart-health">Heart Health</option>
-                        <option value="brain-health">Brain Health</option>
-                        <option value="mens-health">Men's Health</option>
-                    </select>
-                </div>
-                <div class="filter-group">
-                    <label>Price Range</label>
-                    <select id="price-filter">
-                        <option value="">All Prices</option>
-                        <option value="0-25">Under $25</option>
-                        <option value="25-50">$25 - $50</option>
-                        <option value="50-100">$50 - $100</option>
-                        <option value="100+">Over $100</option>
-                    </select>
-                </div>
-                <div class="filter-group">
-                    <label>Sort By</label>
-                    <select id="sort-filter">
-                        <option value="name">Name A-Z</option>
-                        <option value="price-low">Price: Low to High</option>
-                        <option value="price-high">Price: High to Low</option>
-                        <option value="popularity">Most Popular</option>
-                        <option value="newest">Newest First</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-
-        <div id="products-grid" class="products-grid">
-            <!-- Products will be loaded here dynamically -->
-        </div>
-
-        <div class="pagination" id="pagination">
-            <!-- Pagination will be generated here -->
-        </div>
+  <div class="products-container">
+    <div class="products-header">
+      <h1>Our Premium Supplements</h1>
+      <p>Discover our carefully curated selection of high-quality health supplements</p>
     </div>
 
-  <footer>
-    <div class="footer-content">
-      <div class="footer-section">
-        <h4>Quick Links</h4>
-        <a href="products.html">Products</a>
-        <a href="index.html#contact">Contact</a>
-        <a href="articles.html">Articles</a>
-      </div>
-      <div class="footer-section">
-        <h4>Follow Us</h4>
-        <a href="#" target="_blank">Facebook</a>
-        <a href="#" target="_blank">Twitter</a>
-        <a href="#" target="_blank">LinkedIn</a>
+    <div class="filters-section">
+      <div class="filters-row">
+        <div class="search-box">
+          <div class="filter-group">
+            <label>Search Products</label>
+            <input type="text" id="search-input" placeholder="Search by name, category, or benefits...">
+          </div>
+        </div>
+        <div class="filter-group">
+          <label>Category</label>
+          <select id="category-filter">
+            <option value="">All Categories</option>
+            <option value="heart-health">Heart Health</option>
+            <option value="brain-health">Brain Health</option>
+            <option value="mens-health">Men's Health</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label>Price Range</label>
+          <select id="price-filter">
+            <option value="">All Prices</option>
+            <option value="0-25">Under $25</option>
+            <option value="25-50">$25 - $50</option>
+            <option value="50-100">$50 - $100</option>
+            <option value="100+">Over $100</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label>Sort By</label>
+          <select id="sort-filter">
+            <option value="name">Name A-Z</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+            <option value="popularity">Most Popular</option>
+            <option value="newest">Newest First</option>
+          </select>
+        </div>
       </div>
     </div>
-    <div class="footer-bottom">
-      &copy; 2025 Camega. All rights reserved.
-    </div>
-  </footer>
 
-    <!-- Scripts -->
-    <script src="js/products.js"></script>
+    <div id="products-grid" class="products-grid"></div>
+    <div class="pagination" id="pagination"></div>
+  </div>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="js/products.js"></script>
 </body>
 </html>
